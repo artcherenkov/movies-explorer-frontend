@@ -1,0 +1,31 @@
+.nav {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  margin-left: 44px;
+}
+
+.link {
+  composes: link from "../../Header.module.css";
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+.link_active {
+  font-weight: 500;
+}
+
+.link_type_profile {
+  font-size: 14px;
+  line-height: 16px;
+  border: 2px solid #aaaaaa;
+  padding: 5px 12px 6px 31px;
+  border-radius: 50px;
+  background: url("../../../../images/icon-man.svg") no-repeat 10px 50%;
+  margin-left: auto;
+}
+
+.link:not(:last-child) {
+  margin-right: 16px;
+}
