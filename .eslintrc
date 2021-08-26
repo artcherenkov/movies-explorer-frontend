@@ -1,0 +1,12 @@
+{
+  "extends": ["react-app", "airbnb-base", "prettier"],
+  "plugins": ["import"],
+  "rules": {
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": ["_id", "_doc"]
+      }
+    ]
+  }
+}
