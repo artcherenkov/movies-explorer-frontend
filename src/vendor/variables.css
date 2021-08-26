@@ -1,0 +1,15 @@
+:root {
+  --font-inter: inter, arial, sans-serif;
+
+  --bg-blue: #073042;
+  --bg-tech-grey: #303030;
+  --bg-light-grey: #2f2f2f;
+  --bg-grey: #272727;
+  --bg-dark-grey: #202020;
+
+  --font-grey: #8b8b8b;
+
+  --accent-green: #3ddc84;
+  --accent-pink: #ee3465;
+  --accent-blue: #4285f4;
+}
