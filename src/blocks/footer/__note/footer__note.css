@@ -1,0 +1,9 @@
+.footer__note {
+  margin: 0 0 20px;
+  font-family: var(--font-inter);
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+
+  color: var(--font-grey);
+}

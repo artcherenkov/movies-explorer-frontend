@@ -1,0 +1,3 @@
+.footer__links-item:not(:last-child) {
+  margin-right: 20px;
+}

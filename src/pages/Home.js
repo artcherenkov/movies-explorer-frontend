@@ -3,6 +3,7 @@ import Hero from "../components/Hero/Hero";
 import AboutProject from "../components/AboutProject/AboutProject";
 import Technologies from "../components/Technologies/Technologies";
 import Student from "../components/Student/Student";
+import Footer from "../components/Footer/Footer";
 
 const HomePage = () => (
   <>
@@ -13,6 +14,7 @@ const HomePage = () => (
       <Technologies />
       <Student />
     </main>
+    <Footer />
   </>
 );
 

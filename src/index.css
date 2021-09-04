@@ -19,6 +19,15 @@
 @import url("./blocks/diploma/__segment-title/diploma__segment-title.css");
 @import url("./blocks/diploma/__text/diploma__text.css");
 
+@import url("./blocks/footer/footer.css");
+@import url("./blocks/footer/__container/footer__container.css");
+@import url("./blocks/footer/__copyright/footer__copyright.css");
+@import url("./blocks/footer/__link/footer__link.css");
+@import url("./blocks/footer/__links/footer__links.css");
+@import url("./blocks/footer/__links-item/footer__links-item.css");
+@import url("./blocks/footer/__nav/footer__nav.css");
+@import url("./blocks/footer/__note/footer__note.css");
+
 @import url("./blocks/header/header.css");
 @import url("./blocks/header/__button/header__button.css");
 @import url("./blocks/header/__link/header__link.css");

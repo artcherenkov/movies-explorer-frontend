@@ -1,0 +1,7 @@
+.footer__link {
+  font-family: var(--font-inter);
+  font-size: 13px;
+  line-height: 16px;
+  text-decoration: none;
+  color: #ffffff;
+}
