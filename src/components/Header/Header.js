@@ -1,21 +1,16 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import cn from "classnames";
-
-import AuthLinks from "./components/AuthLinks/AuthLinks";
-import Nav from "./components/Nav/Nav";
-
-import styles from "./Header.module.css";
-import "../../vendor/mixins.css";
+import AuthNav from "./components/AuthNav";
+import Nav from "./components/Nav";
 
 const Header = (props) => {
   const { isAuth = true } = props;
 
   return (
-    <header className={styles.header}>
-      <nav className={styles.wrapper}>
-        <Link className={cn(styles.logo, "link")} to="/" />
-        {isAuth ? <Nav /> : <AuthLinks />}
+    <header className="header">
+      <nav className="header__wrapper">
+        <Link className="link header__logo" to="/" />
+        {isAuth ? <Nav /> : <AuthNav />}
       </nav>
     </header>
   );

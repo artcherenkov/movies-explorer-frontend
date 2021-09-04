@@ -1,5 +1,6 @@
 .link {
-  transition: 300ms ease;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
 }
 
 .link:hover {

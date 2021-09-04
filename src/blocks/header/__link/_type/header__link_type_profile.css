@@ -1,0 +1,9 @@
+.header__link_type_profile {
+  font-size: 14px;
+  line-height: 16px;
+  border: 2px solid #aaaaaa;
+  padding: 5px 12px 6px 31px;
+  border-radius: 50px;
+  background: url("../../../../images/icon-man.svg") no-repeat 10px 50%;
+  margin-left: auto;
+}

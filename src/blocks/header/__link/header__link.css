@@ -1,0 +1,12 @@
+.header__link {
+  font-family: var(--font-inter);
+  text-decoration: none;
+  color: white;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.header__link:not(:last-child) {
+  margin-right: 16px;
+}

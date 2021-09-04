@@ -1,10 +1,17 @@
-body {
-  margin: 0;
-  font-family: var(--font-inter);
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  text-rendering: optimizeLegibility;
-}
+@import url("./vendor/normalize.css");
+@import url("./vendor/fonts.css");
+@import url("./vendor/variables.css");
+
+@import url("./blocks/root/root.css");
+@import url("./blocks/link/link.css");
+
+@import url("./blocks/header/header.css");
+@import url("./blocks/header/__button/header__button.css");
+@import url("./blocks/header/__link/header__link.css");
+@import url("./blocks/header/__link/_active/header__link_active.css");
+@import url("./blocks/header/__link/_type/header__link_type_auth.css");
+@import url("./blocks/header/__link/_type/header__link_type_profile.css");
+@import url("./blocks/header/__logo/header__logo.css");
+@import url("./blocks/header/__nav/header__nav.css");
+@import url("./blocks/header/__nav/_auth/header__nav_auth.css");
+@import url("./blocks/header/__wrapper/header__wrapper.css");

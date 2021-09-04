@@ -1,0 +1,9 @@
+.header__link_type_auth {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+}
+
+.header__link_type_auth:not(:last-child) {
+  margin-right: 30px;
+}

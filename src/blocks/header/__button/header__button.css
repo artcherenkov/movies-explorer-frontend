@@ -1,0 +1,12 @@
+.header__button {
+  padding: 8px 20px;
+  border-radius: 3px;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  font-family: var(--font-inter);
+  text-decoration: none;
+  color: black;
+  background: var(--accent-green);
+}
