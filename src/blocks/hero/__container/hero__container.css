@@ -1,2 +1,7 @@
 .hero__container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 75px 30px;
+  background: url("../../../images/bg-hero.svg") no-repeat;
+  background-position: calc(100% - 30px) 75px;
 }

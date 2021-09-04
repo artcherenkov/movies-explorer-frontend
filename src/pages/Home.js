@@ -3,9 +3,9 @@ import Hero from "../components/Hero/Hero";
 
 const HomePage = () => (
   <>
-    <Header />
-    <main>
-      <Hero />
+    <Header className="root__header" />
+    <main className="main">
+      <Hero className="main__hero" />
     </main>
   </>
 );
