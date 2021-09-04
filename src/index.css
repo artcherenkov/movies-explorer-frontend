@@ -39,10 +39,27 @@
 @import url("./blocks/main/main.css");
 @import url("./blocks/main/__hero/main__hero.css");
 
+@import url("./blocks/portfolio/portfolio.css");
+@import url("./blocks/portfolio/__link/portfolio__link.css");
+@import url("./blocks/portfolio/__links/portfolio__links.css");
+@import url("./blocks/portfolio/__links-item/portfolio__links-item.css");
+@import url("./blocks/portfolio/__title/portfolio__title.css");
+
 @import url("./blocks/section/section.css");
 @import url("./blocks/section/_gray/section_gray.css");
 @import url("./blocks/section/__container/section__container.css");
 @import url("./blocks/section/__title/section__title.css");
+
+@import url("./blocks/student/student.css");
+@import url("./blocks/student/__about/student__about.css");
+@import url("./blocks/student/__info/student__info.css");
+@import url("./blocks/student/__link/student__link.css");
+@import url("./blocks/student/__name/student__name.css");
+@import url("./blocks/student/__note/student__note.css");
+@import url("blocks/student/__personal/student__personal.css");
+@import url("./blocks/student/__photo/student__photo.css");
+@import url("./blocks/student/__social/student__social.css");
+@import url("./blocks/student/__socials/student__socials.css");
 
 @import url("./blocks/techs/techs.css");
 @import url("./blocks/techs/__item/techs__item.css");

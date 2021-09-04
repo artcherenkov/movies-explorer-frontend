@@ -1,0 +1,13 @@
+.portfolio__link {
+  display: block;
+  padding: 20px 0 19px;
+  font-family: var(--font-inter);
+  font-size: 30px;
+  line-height: 50px;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  text-decoration: none;
+
+  background: url("../../../images/icon-link.svg") no-repeat calc(100% - 6px)
+    calc(50% + 3px);
+}

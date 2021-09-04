@@ -1,0 +1,5 @@
+.student__photo {
+  border-radius: 10px;
+  width: 270px;
+  align-self: flex-start;
+}

@@ -1,0 +1,6 @@
+.portfolio__links-item {
+}
+
+.portfolio__links-item:not(:last-child) {
+  border-bottom: 1px solid #424242;
+}

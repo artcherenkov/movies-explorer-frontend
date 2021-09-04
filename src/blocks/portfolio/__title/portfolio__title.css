@@ -1,0 +1,9 @@
+.portfolio__title {
+  margin: 100px 0 30px;
+  font-family: var(--font-inter);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 20px;
+  color: var(--font-grey);
+}

@@ -1,0 +1,7 @@
+.student__about {
+  font-family: var(--font-inter);
+  margin: 0 0 99px;
+  font-size: 14px;
+  line-height: 22px;
+  color: #ffffff;
+}
