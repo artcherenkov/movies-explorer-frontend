@@ -43,3 +43,9 @@
 @import url("./blocks/section/_gray/section_gray.css");
 @import url("./blocks/section/__container/section__container.css");
 @import url("./blocks/section/__title/section__title.css");
+
+@import url("./blocks/techs/techs.css");
+@import url("./blocks/techs/__item/techs__item.css");
+@import url("./blocks/techs/__list/techs__list.css");
+@import url("./blocks/techs/__text/techs__text.css");
+@import url("./blocks/techs/__title/techs__title.css");

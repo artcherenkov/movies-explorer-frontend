@@ -1,0 +1,11 @@
+.techs__title {
+  margin: 90px 0 26px;
+  font-family: var(--font-inter);
+  font-weight: normal;
+  font-size: 50px;
+  line-height: 58px;
+  text-align: center;
+  letter-spacing: -0.04em;
+
+  color: #ffffff;
+}
