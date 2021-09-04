@@ -6,6 +6,19 @@
 @import url("./blocks/root/__header/root__header.css");
 @import url("./blocks/link/link.css");
 
+@import url("./blocks/diploma/diploma.css");
+@import url("./blocks/diploma/__about/diploma__about.css");
+@import url("./blocks/diploma/__bar-segment/diploma__bar-segment.css");
+@import url("./blocks/diploma/__bar-segment/_width/diploma__bar-segment_width_1.css");
+@import url("blocks/diploma/__bar-segment/_width/diploma__bar-segment_width_5.css");
+@import url("./blocks/diploma/__column/diploma__column.css");
+@import url("./blocks/diploma/__columns/diploma__columns.css");
+@import url("./blocks/diploma/__progress-bar/diploma__progress-bar.css");
+@import url("./blocks/diploma/__segment-legend/diploma__segment-legend.css");
+@import url("./blocks/diploma/__segment-legend/_highlight/diploma__segment-legend_highlight.css");
+@import url("./blocks/diploma/__segment-title/diploma__segment-title.css");
+@import url("./blocks/diploma/__text/diploma__text.css");
+
 @import url("./blocks/header/header.css");
 @import url("./blocks/header/__button/header__button.css");
 @import url("./blocks/header/__link/header__link.css");
@@ -25,3 +38,8 @@
 
 @import url("./blocks/main/main.css");
 @import url("./blocks/main/__hero/main__hero.css");
+
+@import url("./blocks/section/section.css");
+@import url("./blocks/section/_gray/section_gray.css");
+@import url("./blocks/section/__container/section__container.css");
+@import url("./blocks/section/__title/section__title.css");

@@ -1,0 +1,13 @@
+.diploma__segment-legend {
+  font-family: var(--font-inter);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+
+  color: #ffffff;
+  background: var(--bg-tech-grey);
+  padding: 10px 0;
+  box-sizing: border-box;
+}

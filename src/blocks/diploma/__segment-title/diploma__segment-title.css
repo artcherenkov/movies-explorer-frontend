@@ -1,0 +1,11 @@
+.diploma__segment-title {
+  font-family: var(--font-inter);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  margin-top: 13px;
+
+  color: var(--font-grey);
+}
