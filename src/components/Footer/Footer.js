@@ -6,18 +6,33 @@ const Footer = () => (
       <nav className="footer__nav">
         <ul className="footer__links">
           <li className="footer__links-item">
-            <a className="footer__link" href="https://google.com">
+            <a
+              className="link footer__link"
+              href="https://practicum.yandex.ru/"
+              target="_blank"
+              rel="noreferrer"
+            >
               Яндекс.Практикум
             </a>
           </li>
           <li className="footer__links-item">
-            <a className="footer__link" href="https://google.com">
+            <a
+              className="link footer__link"
+              href="https://github.com/artcherenkov"
+              target="_blank"
+              rel="noreferrer"
+            >
               Github
             </a>
           </li>
           <li className="footer__links-item">
-            <a className="footer__link" href="https://google.com">
-              Facebook
+            <a
+              className="link footer__link"
+              href="https://vk.com/artcherenkov"
+              target="_blank"
+              rel="noreferrer"
+            >
+              VK
             </a>
           </li>
         </ul>

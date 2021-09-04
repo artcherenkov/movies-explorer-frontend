@@ -12,7 +12,7 @@ const Hero = ({ className }) => (
       <p className="hero__text">
         Листайте ниже, чтобы узнать больше про этот проект и его создателя.
       </p>
-      <a href="/" className="hero__button">
+      <a href="/" className="link hero__button">
         Узнать больше
       </a>
     </div>

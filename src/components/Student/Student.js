@@ -21,12 +21,22 @@ const Student = ({ className }) => (
             </p>
             <ul className="student__socials">
               <li className="student__social">
-                <a className="student__link" href="https://google.com">
-                  Facebook
+                <a
+                  className="link student__link"
+                  href="https://vk.com/artcherenkov"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  VK
                 </a>
               </li>
               <li className="student__social">
-                <a className="student__link" href="https://google.com">
+                <a
+                  className="link student__link"
+                  href="https://github.com/artcherenkov"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Github
                 </a>
               </li>
@@ -42,17 +52,32 @@ const Student = ({ className }) => (
           <h4 className="portfolio__title">Портфолио</h4>
           <ul className="portfolio__links">
             <li className="portfolio__links-item">
-              <a className="portfolio__link" href="https://google.com">
+              <a
+                className="link portfolio__link"
+                href="https://google.com"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Статичный сайт
               </a>
             </li>
             <li className="portfolio__links-item">
-              <a className="portfolio__link" href="https://google.com">
+              <a
+                className="link portfolio__link"
+                href="https://google.com"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Адаптивный сайт
               </a>
             </li>
             <li className="portfolio__links-item">
-              <a className="portfolio__link" href="https://google.com">
+              <a
+                className="link portfolio__link"
+                href="https://google.com"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Одностраничное приложение
               </a>
             </li>
