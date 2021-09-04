@@ -15,3 +15,9 @@
 @import url("./blocks/header/__nav/header__nav.css");
 @import url("./blocks/header/__nav/_auth/header__nav_auth.css");
 @import url("./blocks/header/__wrapper/header__wrapper.css");
+
+@import url("./blocks/hero/hero.css");
+@import url("./blocks/hero/__button/hero__button.css");
+@import url("./blocks/hero/__container/hero__container.css");
+@import url("./blocks/hero/__text/hero__text.css");
+@import url("./blocks/hero/__title/hero__title.css");
