@@ -48,6 +48,22 @@
 @import url("./blocks/main/main.css");
 @import url("./blocks/main/__hero/main__hero.css");
 
+@import url("./blocks/movie/movie.css");
+@import url("./blocks/movie/__container/movie__container.css");
+@import url("./blocks/movie/__duration/movie__duration.css");
+@import url("./blocks/movie/__info/movie__info.css");
+@import url("./blocks/movie/__pic/movie__pic.css");
+@import url("./blocks/movie/__button/movie__button.css");
+@import url("./blocks/movie/__button/_active/movie__button_active.css");
+@import url("./blocks/movie/__button/_type/movie__button_type_delete.css");
+@import url("./blocks/movie/__button/_type/movie__button_type_save.css");
+@import url("./blocks/movie/__title/movie__title.css");
+
+@import url("./blocks/movies/movies.css");
+@import url("./blocks/movies/__button-more/movies__button-more.css");
+@import url("./blocks/movies/__item/movies__item.css");
+@import url("./blocks/movies/__list/movies__list.css");
+
 @import url("./blocks/not-found/not-found.css");
 @import url("./blocks/not-found/__button/not-found__button.css");
 @import url("./blocks/not-found/__code/not-found__code.css");

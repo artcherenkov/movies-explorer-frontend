@@ -1,0 +1,16 @@
+.movie__button {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  color: #ffffff;
+  background: #313131;
+  border: none;
+  border-radius: 30px;
+  padding: 6px 10px;
+
+  opacity: 0;
+  z-index: -1;
+
+  transition: all 200ms ease-in-out;
+}

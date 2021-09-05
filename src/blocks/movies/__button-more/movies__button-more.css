@@ -1,0 +1,14 @@
+.movies__button-more {
+  width: 320px;
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  border: none;
+  padding: 11px 0 9px;
+  background: var(--bg-light-grey);
+  border-radius: 6px;
+  margin: 0 auto 85px;
+
+  color: #ffffff;
+}

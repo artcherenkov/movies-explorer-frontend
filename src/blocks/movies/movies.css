@@ -1,0 +1,6 @@
+.movies {
+  background: var(--bg-dark-grey);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

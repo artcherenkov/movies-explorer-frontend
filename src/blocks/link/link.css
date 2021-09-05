@@ -1,6 +1,6 @@
 .link {
   cursor: pointer;
-  transition: 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
 }
 
 .link:hover {
