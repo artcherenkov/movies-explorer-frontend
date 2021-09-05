@@ -1,0 +1,10 @@
+.not-found {
+  width: 100%;
+  height: 100vh;
+  background: var(--bg-dark-grey);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}

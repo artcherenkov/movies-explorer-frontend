@@ -6,26 +6,30 @@ import Movies from "../pages/Movies";
 import SavedMovies from "../pages/SavedMovies";
 import Profile from "../pages/Profile";
 import Home from "../pages/Home";
+import NotFound from "../pages/NotFound";
 
 const App = () => (
   <Switch>
-    <Route path="/signin">
+    <Route exact path="/signin">
       <Login />
     </Route>
-    <Route path="/signup">
+    <Route exact path="/signup">
       <Register />
     </Route>
-    <Route path="/movies">
+    <Route exact path="/movies">
       <Movies />
     </Route>
-    <Route path="/saved-movies">
+    <Route exact path="/saved-movies">
       <SavedMovies />
     </Route>
-    <Route path="/profile">
+    <Route exact path="/profile">
       <Profile />
     </Route>
-    <Route path="/">
+    <Route exact path="/">
       <Home />
+    </Route>
+    <Route>
+      <NotFound />
     </Route>
   </Switch>
 );

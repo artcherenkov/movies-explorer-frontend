@@ -1,0 +1,10 @@
+.not-found__message {
+  font-family: var(--font-inter);
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  margin-top: 5px;
+
+  color: #ffffff;
+}

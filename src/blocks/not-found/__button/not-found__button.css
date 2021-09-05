@@ -1,0 +1,15 @@
+.not-found__button {
+  position: absolute;
+  margin-top: 184px;
+  font-family: var(--font-inter);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--accent-blue);
+  padding: 0;
+  border: none;
+  background: transparent;
+  bottom: 0;
+  cursor: pointer;
+}
