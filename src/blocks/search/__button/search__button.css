@@ -1,0 +1,13 @@
+.search__button {
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 18px;
+  text-align: center;
+  color: #ffffff;
+
+  border-radius: 48px;
+  border: none;
+  padding: 8px 13px;
+  background: var(--accent-blue);
+}

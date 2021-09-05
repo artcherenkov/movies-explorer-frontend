@@ -1,0 +1,8 @@
+.search__input-replacement_active {
+  background: #2be080;
+}
+
+.search__input-replacement_active::after {
+  transform: translateX(200%);
+  background: #fff;
+}

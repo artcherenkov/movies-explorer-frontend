@@ -1,0 +1,6 @@
+.search__input-container {
+  display: flex;
+  padding: 14px 0 13px;
+  border-bottom: 1px solid #424242;
+  margin-bottom: 33px;
+}

@@ -60,6 +60,19 @@
 @import url("./blocks/portfolio/__links-item/portfolio__links-item.css");
 @import url("./blocks/portfolio/__title/portfolio__title.css");
 
+@import url("./blocks/search/search.css");
+@import url("./blocks/search/__button/search__button.css");
+@import url("./blocks/search/__container/search__container.css");
+@import url("./blocks/search/__form/search__form.css");
+@import url("./blocks/search/__input/search__input.css");
+@import url("./blocks/search/__input-container/search__input-container.css");
+@import url("./blocks/search/__input-replacement/search__input-replacement.css");
+@import url("./blocks/search/__input-replacement/_active/search__input-replacement_active.css");
+@import url("./blocks/search/__label/search__label.css");
+@import url("./blocks/search/__toggle/search__toggle.css");
+@import url("./blocks/search/__toggle-input/search__toggle-input.css");
+@import url("./blocks/search/__toggle-label/search__toggle-label.css");
+
 @import url("./blocks/section/section.css");
 @import url("./blocks/section/_gray/section_gray.css");
 @import url("./blocks/section/__container/section__container.css");

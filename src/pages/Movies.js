@@ -1,9 +1,12 @@
 import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
+import SearchBar from "../components/SearchBar/SearchBar";
 
 const Movies = () => (
   <>
     <Header />
-    <h1>Movies</h1>
+    <SearchBar />
+    <Footer />
   </>
 );
 
