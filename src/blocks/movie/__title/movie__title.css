@@ -6,4 +6,13 @@
   line-height: 16px;
   color: #ffffff;
   height: 32px;
+  max-width: 250px;
+}
+
+@media (max-width: 980px) {
+  .movie__title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 }

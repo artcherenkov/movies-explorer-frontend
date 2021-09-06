@@ -1,4 +1,5 @@
 .movies__button-more {
+  display: block;
   width: 320px;
   font-family: var(--font-inter);
   font-weight: 500;
@@ -11,4 +12,10 @@
   margin: 0 auto 85px;
 
   color: #ffffff;
+}
+
+@media (max-width: 980px) {
+  .movies__button-more {
+    margin-bottom: 99px;
+  }
 }
