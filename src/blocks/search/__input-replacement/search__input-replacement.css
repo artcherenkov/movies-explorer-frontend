@@ -1,7 +1,7 @@
 .search__input-replacement {
   width: 34px;
   height: 14px;
-  background: #ebebeb;
+  background: #343434;
   margin-right: 14px;
   border-radius: 20px;
   padding: 2px;
@@ -15,7 +15,7 @@
   content: "";
   width: 10px;
   height: 10px;
-  background: #f5f5f5;
+  background: #a0a0a0;
   border-radius: 50%;
   transition: 300ms;
 }
