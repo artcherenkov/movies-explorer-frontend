@@ -10,3 +10,11 @@
 
   color: #ffffff;
 }
+
+@media (max-width: 980px) {
+  .techs__text {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 83px;
+  }
+}

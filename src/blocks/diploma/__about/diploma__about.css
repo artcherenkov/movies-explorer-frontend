@@ -8,3 +8,9 @@
 
   color: #ffffff;
 }
+
+@media (max-width: 980px) {
+  .diploma__about {
+    margin: 0 0 22px;
+  }
+}

@@ -2,3 +2,9 @@
   background: var(--bg-grey);
   padding: 100px 0 100px;
 }
+
+@media (max-width: 980px) {
+  .section_gray {
+    padding: 90px 0 89px;
+  }
+}

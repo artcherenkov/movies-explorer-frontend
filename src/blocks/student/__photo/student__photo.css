@@ -3,3 +3,9 @@
   width: 270px;
   align-self: flex-start;
 }
+
+@media (max-width: 980px) {
+  .student__photo {
+    width: 255px;
+  }
+}

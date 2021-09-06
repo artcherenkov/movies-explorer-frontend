@@ -3,3 +3,9 @@
   margin: 0 auto;
   padding: 0 30px;
 }
+
+@media (max-width: 980px) {
+  .section__container {
+    padding: 0 50px;
+  }
+}

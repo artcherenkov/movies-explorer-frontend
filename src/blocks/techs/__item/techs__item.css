@@ -17,3 +17,12 @@
 .techs__item:not(:last-child) {
   margin-right: 10px;
 }
+
+@media (max-width: 980px) {
+  .techs__item {
+    font-size: 12px;
+    line-height: 15px;
+    padding: 21px 0;
+    width: 84px;
+  }
+}
