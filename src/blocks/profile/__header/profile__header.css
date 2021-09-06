@@ -9,3 +9,10 @@
 
   color: #ffffff;
 }
+
+@media (max-width: 768px) {
+  .profile__header {
+    margin-top: 236px;
+    margin-bottom: 96px;
+  }
+}
