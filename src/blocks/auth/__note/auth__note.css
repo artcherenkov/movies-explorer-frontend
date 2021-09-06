@@ -1,0 +1,8 @@
+.auth__note {
+  font-family: var(--font-inter);
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+
+  color: #8b8b8b;
+}
