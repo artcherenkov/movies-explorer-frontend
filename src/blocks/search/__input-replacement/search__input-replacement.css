@@ -19,3 +19,10 @@
   border-radius: 50%;
   transition: 300ms;
 }
+
+@media (max-width: 980px) {
+  .search__input-replacement {
+    margin-right: 0;
+    margin-left: 17px;
+  }
+}
