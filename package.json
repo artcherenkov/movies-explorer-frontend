@@ -20,7 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "npx prettier --write . && npx eslint . --fix && git add -A .",
-    "deploy": "npm run build && scp -i ~/.ssh/ya -r ./build/* artcherenkov@84.201.139.175:/home/artcherenkov/frontend",
+    "deploy": "npm run build && scp -i ~/.ssh/ya -r ./build/* artcherenkov@84.201.139.175:/home/artcherenkov/frontend && rm -rf ./build ",
     "checks:pre-commit": "npm run lint",
     "checks:pre-push": "npm run checks:pre-commit && npm run build"
   },
