@@ -76,6 +76,17 @@
 @import url("./blocks/portfolio/__links-item/portfolio__links-item.css");
 @import url("./blocks/portfolio/__title/portfolio__title.css");
 
+@import url("./blocks/profile/profile.css");
+@import url("./blocks/profile/__button/profile__button.css");
+@import url("./blocks/profile/__button/_type/profile__button_type_signout.css");
+@import url("./blocks/profile/__button/_type/profile__button_type_submit.css");
+@import url("./blocks/profile/__container/profile__container.css");
+@import url("./blocks/profile/__form/profile__form.css");
+@import url("./blocks/profile/__header/profile__header.css");
+@import url("./blocks/profile/__input/profile__input.css");
+@import url("./blocks/profile/__input-wrapper/profile__input-wrapper.css");
+@import url("./blocks/profile/__label/profile__label.css");
+
 @import url("./blocks/search/search.css");
 @import url("./blocks/search/__button/search__button.css");
 @import url("./blocks/search/__container/search__container.css");

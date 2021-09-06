@@ -1,9 +1,10 @@
 import Header from "../components/Header/Header";
+import ProfileComponent from "../components/Profile/Profile";
 
 const Profile = () => (
   <>
     <Header />
-    <h1>Profile</h1>
+    <ProfileComponent />
   </>
 );
 

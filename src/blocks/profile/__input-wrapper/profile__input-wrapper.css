@@ -1,0 +1,10 @@
+.profile__input-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.profile__input-wrapper:not(:last-of-type) {
+  padding-bottom: 15px;
+  margin-bottom: 17px;
+  border-bottom: 1px solid #424242;
+}

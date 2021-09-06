@@ -1,0 +1,13 @@
+.profile__input {
+  display: block;
+  font-family: var(--font-inter);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  text-align: right;
+  color: #ffffff;
+  width: 100%;
+  border: none;
+  background: transparent;
+}

@@ -1,0 +1,11 @@
+.profile__label {
+  display: block;
+  font-family: var(--font-inter);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  color: #ffffff;
+  width: 100%;
+  max-width: 140px;
+}
