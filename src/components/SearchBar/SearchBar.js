@@ -17,7 +17,7 @@ const SearchBar = () => {
               id="search"
               placeholder="Фильм"
             />
-            <button className="search__button">Найти</button>
+            <button className="search__button button">Найти</button>
           </div>
 
           <Toggle isChecked={isChecked} onChange={onChange}>

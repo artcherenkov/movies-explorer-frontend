@@ -38,12 +38,20 @@ const Profile = () => {
             />
           </div>
           <button
-            className={cn("profile__button", "profile__button_type_submit")}
+            className={cn(
+              "profile__button",
+              "profile__button_type_submit",
+              "button"
+            )}
           >
             Редактировать
           </button>
           <button
-            className={cn("profile__button", "profile__button_type_signout")}
+            className={cn(
+              "profile__button",
+              "profile__button_type_signout",
+              "button"
+            )}
           >
             Выйти из аккаунта
           </button>

@@ -44,7 +44,7 @@ const MoviesList = () => (
         <Movie src={moviePic4} isFavorite />
       </li>
     </ul>
-    <button className="link movies__button-more">Ещё</button>
+    <button className="button movies__button-more">Ещё</button>
   </section>
 );
 

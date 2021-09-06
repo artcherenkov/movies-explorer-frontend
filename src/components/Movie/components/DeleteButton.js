@@ -7,7 +7,7 @@ const DeleteButton = ({ onClick }) => (
       "movie__button",
       "movie__button_type_delete",
       "movie__button_active",
-      "link"
+      "button"
     )}
     onClick={onClick}
   />
