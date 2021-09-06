@@ -8,3 +8,14 @@
   color: #ffffff;
   max-width: 640px;
 }
+
+@media (max-width: 980px) {
+  .hero__title {
+    margin-top: 418px;
+    margin-bottom: 22px;
+    max-width: initial;
+    font-size: 40px;
+    line-height: 50px;
+    text-align: center;
+  }
+}

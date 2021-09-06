@@ -7,3 +7,11 @@
   max-width: 310px;
   opacity: 0.5;
 }
+
+@media (max-width: 980px) {
+  .hero__text {
+    margin: 0 auto 91px;
+    text-align: center;
+    max-width: 260px;
+  }
+}

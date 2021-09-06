@@ -60,6 +60,7 @@
 @import url("./blocks/hero/__container/hero__container.css");
 @import url("./blocks/hero/__text/hero__text.css");
 @import url("./blocks/hero/__title/hero__title.css");
+@import url("./blocks/hero/__title-divider/hero__title-divider.css");
 
 @import url("./blocks/main/main.css");
 @import url("./blocks/main/__hero/main__hero.css");
