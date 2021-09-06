@@ -1,3 +1,9 @@
 .auth {
   padding-top: 70px;
 }
+
+@media (max-width: 768px) {
+  .auth {
+    padding-top: 232px;
+  }
+}
