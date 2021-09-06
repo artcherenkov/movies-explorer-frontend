@@ -1,5 +1,9 @@
 .auth__container {
   max-width: 400px;
   margin: 0 auto;
-  padding-top: 70px;
+  height: 100vh;
+
+  max-height: 560px;
+  display: flex;
+  flex-direction: column;
 }

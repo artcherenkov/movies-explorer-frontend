@@ -1,7 +1,8 @@
 .auth__submit {
+  display: block;
   width: 100%;
-  margin-top: 152px;
   padding: 13px 0 15px;
+  margin-top: auto;
 
   font-family: var(--font-inter);
   font-style: normal;

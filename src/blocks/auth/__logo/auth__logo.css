@@ -1,2 +1,5 @@
 .auth__logo {
+  display: block;
+  max-width: 38px;
+  max-height: 38px;
 }

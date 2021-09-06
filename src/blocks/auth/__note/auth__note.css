@@ -1,4 +1,5 @@
 .auth__note {
+  margin: 16px 0 0;
   font-family: var(--font-inter);
   font-size: 14px;
   line-height: 17px;

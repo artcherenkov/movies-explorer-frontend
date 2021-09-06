@@ -1,9 +1,10 @@
 .auth__title {
-  margin: 40px auto;
+  margin: 40px 0;
   font-family: var(--font-inter);
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
   line-height: 29px;
   color: #ffffff;
+  text-align: left;
 }
