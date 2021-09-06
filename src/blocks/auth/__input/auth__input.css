@@ -10,4 +10,11 @@
   border: none;
   border-bottom: 1px solid #424242;
   padding: 5px 0 10px;
+
+  transition: 200ms ease-in-out;
+}
+
+.auth__input:focus {
+  border-color: var(--accent-blue);
+  outline: none;
 }
