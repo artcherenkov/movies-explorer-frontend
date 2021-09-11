@@ -1,0 +1,7 @@
+@media (max-width: 800px) {
+  .header__nav_open {
+    display: flex;
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

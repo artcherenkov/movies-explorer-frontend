@@ -7,3 +7,10 @@
   background: url("../../../../images/icon-man.svg") no-repeat 10px 50%;
   margin-left: auto;
 }
+
+@media (max-width: 800px) {
+  .header__link_type_profile {
+    margin-left: initial;
+    margin-top: auto;
+  }
+}

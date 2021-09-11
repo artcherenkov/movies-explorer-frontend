@@ -7,3 +7,18 @@
 .header__link_type_auth:not(:last-child) {
   margin-right: 30px;
 }
+
+@media (max-width: 500px) {
+  .header__link_type_auth {
+    font-size: 10px;
+    line-height: 16px;
+    margin-right: 15px;
+    margin-bottom: 0;
+  }
+
+  .header__link_type_auth:not(:last-child) {
+    margin-right: 15px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}

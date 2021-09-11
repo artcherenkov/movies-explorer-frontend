@@ -45,14 +45,19 @@
 @import url("./blocks/footer/__note/footer__note.css");
 
 @import url("./blocks/header/header.css");
+@import url("./blocks/header/__burger/header__burger.css");
 @import url("./blocks/header/__button/header__button.css");
+@import url("./blocks/header/__close-nav/header__close-nav.css");
 @import url("./blocks/header/__link/header__link.css");
 @import url("./blocks/header/__link/_active/header__link_active.css");
 @import url("./blocks/header/__link/_type/header__link_type_auth.css");
 @import url("./blocks/header/__link/_type/header__link_type_profile.css");
+@import url("./blocks/header/__link/_mobile/header__link_mobile.css");
 @import url("./blocks/header/__logo/header__logo.css");
 @import url("./blocks/header/__nav/header__nav.css");
-@import url("./blocks/header/__nav/_auth/header__nav_auth.css");
+@import url("./blocks/header/__nav/_type/header__nav_type_auth.css");
+@import url("./blocks/header/__nav/_type/header__nav_type_menu.css");
+@import url("./blocks/header/__nav/_open/header__nav_open.css");
 @import url("./blocks/header/__wrapper/header__wrapper.css");
 
 @import url("./blocks/hero/hero.css");
