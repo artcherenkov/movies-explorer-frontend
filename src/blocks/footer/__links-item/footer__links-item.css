@@ -1,3 +1,10 @@
 .footer__links-item:not(:last-child) {
   margin-right: 20px;
 }
+
+@media (max-width: 500px) {
+  .footer__links-item:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 9px;
+  }
+}

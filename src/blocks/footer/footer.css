@@ -8,3 +8,9 @@
     padding: 60px 37px 0;
   }
 }
+
+@media (max-width: 500px) {
+  .footer {
+    padding: 0 10px 0;
+  }
+}

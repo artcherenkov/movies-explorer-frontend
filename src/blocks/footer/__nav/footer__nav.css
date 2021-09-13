@@ -1,2 +1,5 @@
-.footer__nav {
+@media (max-width: 500px) {
+  .footer__nav {
+    margin-bottom: 29px;
+  }
 }

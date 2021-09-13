@@ -7,3 +7,11 @@
 
   color: var(--font-grey);
 }
+
+@media (max-width: 500px) {
+  .footer__note {
+    padding: 40px 0 0;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
