@@ -8,3 +8,9 @@
     padding: 91px 0 90px;
   }
 }
+
+@media (max-width: 500px) {
+  .section {
+    padding: 71px 0 90px;
+  }
+}

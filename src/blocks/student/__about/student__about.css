@@ -12,3 +12,10 @@
     line-height: 18px;
   }
 }
+
+@media (max-width: 500px) {
+  .student__about {
+    font-size: 11px;
+    line-height: 16px;
+  }
+}

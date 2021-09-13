@@ -18,3 +18,12 @@
     line-height: 50px;
   }
 }
+
+@media (max-width: 500px) {
+  .portfolio__link {
+    font-size: 18px;
+    line-height: 28px;
+    background-size: 10px auto;
+    background-position: calc(100% - 4px) calc(50% - 1px);
+  }
+}

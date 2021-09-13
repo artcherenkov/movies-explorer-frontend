@@ -9,3 +9,9 @@
     padding: 0 50px;
   }
 }
+
+@media (max-width: 500px) {
+  .section__container {
+    padding: 0 18px;
+  }
+}

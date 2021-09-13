@@ -11,3 +11,10 @@
   padding: 10px 0;
   box-sizing: border-box;
 }
+
+@media (max-width: 500px) {
+  .diploma__segment-legend {
+    font-size: 11px;
+    line-height: 13px;
+  }
+}

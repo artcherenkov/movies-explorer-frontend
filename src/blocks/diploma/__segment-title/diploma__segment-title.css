@@ -9,3 +9,10 @@
 
   color: var(--font-grey);
 }
+
+@media (max-width: 500px) {
+  .diploma__segment-title {
+    font-size: 11px;
+    line-height: 13px;
+  }
+}

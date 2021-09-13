@@ -18,3 +18,11 @@
     margin-bottom: 83px;
   }
 }
+
+@media (max-width: 980px) {
+  .techs__text {
+    font-size: 11px;
+    line-height: 16px;
+    margin-bottom: 50px;
+  }
+}

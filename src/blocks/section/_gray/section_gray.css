@@ -8,3 +8,10 @@
     padding: 90px 0 89px;
   }
 }
+
+@media (max-width: 500px) {
+  .section_gray {
+    padding: 50px 0 70px;
+    background: var(--bg-dark-grey);
+  }
+}

@@ -10,3 +10,12 @@
   padding-bottom: 23px;
   border-bottom: 1px solid var(--light-grey);
 }
+
+@media (max-width: 500px) {
+  .section__title {
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: -0.04em;
+    padding-bottom: 27px;
+  }
+}

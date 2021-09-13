@@ -9,3 +9,11 @@
     margin-bottom: 93px;
   }
 }
+
+@media (max-width: 500px) {
+  .diploma__columns {
+    margin-top: 61px;
+    margin-bottom: 60px;
+    flex-direction: column;
+  }
+}

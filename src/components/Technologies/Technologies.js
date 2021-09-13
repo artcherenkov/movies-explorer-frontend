@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const Technologies = ({ className }) => (
   <section className={cn(className, "section", "section_gray")}>
     <div className="section__container">
-      <h3 className="section__title">Технологии</h3>
+      <h3 className="section__title section__title_gray">Технологии</h3>
       <div className="techs">
         <h3 className="techs__title">7 технологий</h3>
         <p className="techs__text">

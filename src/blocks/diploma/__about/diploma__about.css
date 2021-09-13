@@ -14,3 +14,11 @@
     margin: 0 0 22px;
   }
 }
+
+@media (max-width: 500px) {
+  .diploma__about {
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 15px;
+  }
+}

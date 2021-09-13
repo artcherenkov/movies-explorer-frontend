@@ -5,7 +5,7 @@ import studentPhoto from "../../images/photo-student.jpg";
 
 const Student = ({ className }) => (
   <section className={cn(className, "section")}>
-    <div className="section__container">
+    <div className="section__container section__container_student">
       <h3 className="section__title">Студент</h3>
       <div className="student">
         <div className="student__info">

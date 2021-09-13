@@ -125,7 +125,9 @@
 @import url("./blocks/section/section.css");
 @import url("./blocks/section/_gray/section_gray.css");
 @import url("./blocks/section/__container/section__container.css");
+@import url("./blocks/section/__container/_student/section__container_student.css");
 @import url("./blocks/section/__title/section__title.css");
+@import url("./blocks/section/__title/_gray/section__title_gray.css");
 
 @import url("./blocks/student/student.css");
 @import url("./blocks/student/__about/student__about.css");

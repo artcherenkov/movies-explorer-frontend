@@ -1,0 +1,5 @@
+@media (max-width: 500px) {
+  .section__container_student {
+    padding: 0 14px;
+  }
+}

@@ -13,3 +13,11 @@
     margin: 89px 0 30px;
   }
 }
+
+@media (max-width: 500px) {
+  .portfolio__title {
+    margin: 70px 0 21px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

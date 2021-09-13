@@ -9,3 +9,9 @@
     margin-right: 40px;
   }
 }
+
+@media (max-width: 500px) {
+  .student__personal {
+    margin-right: 0;
+  }
+}

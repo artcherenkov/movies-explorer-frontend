@@ -2,3 +2,10 @@
   display: flex;
   justify-content: space-between;
 }
+
+@media (max-width: 500px) {
+  .student__info {
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+  }
+}

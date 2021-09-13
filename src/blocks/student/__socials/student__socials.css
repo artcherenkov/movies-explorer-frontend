@@ -4,3 +4,9 @@
   list-style: none;
   display: flex;
 }
+
+@media (max-width: 500px) {
+  .student__socials {
+    margin-top: 40px;
+  }
+}
