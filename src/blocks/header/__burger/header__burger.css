@@ -14,3 +14,12 @@
       center;
   }
 }
+
+@media (max-width: 500px) {
+  .header__burger {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    background-size: cover;
+  }
+}

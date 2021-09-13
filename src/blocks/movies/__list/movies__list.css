@@ -17,3 +17,11 @@
     padding-bottom: 48px;
   }
 }
+
+@media (max-width: 500px) {
+  .movies__list {
+    padding: 61px 10px 10px;
+    grid-template-columns: repeat(auto-fill, 300px);
+    grid-gap: 28px;
+  }
+}

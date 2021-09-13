@@ -9,3 +9,9 @@
     padding-top: 66px;
   }
 }
+
+@media (max-width: 500px) {
+  .search__container {
+    padding: 70px 14px 30px;
+  }
+}

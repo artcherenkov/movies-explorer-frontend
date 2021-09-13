@@ -10,3 +10,10 @@
     margin-bottom: 30px;
   }
 }
+
+@media (max-width: 500px) {
+  .search__input-container {
+    padding-bottom: 9px;
+    margin-bottom: 41px;
+  }
+}

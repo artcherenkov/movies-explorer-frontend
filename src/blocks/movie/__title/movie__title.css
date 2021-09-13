@@ -16,3 +16,10 @@
     text-overflow: ellipsis;
   }
 }
+
+@media (max-width: 500px) {
+  .movie__title {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

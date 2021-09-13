@@ -19,3 +19,11 @@
     margin-bottom: 99px;
   }
 }
+
+@media (max-width: 500px) {
+  .movies__button-more {
+    margin-top: 34px;
+    width: 240px;
+    margin-bottom: 120px;
+  }
+}

@@ -6,7 +6,7 @@ import AuthNav from "./components/AuthNav";
 import Nav from "./components/Nav";
 
 const Header = (props) => {
-  const { isAuth = false, className } = props;
+  const { isAuth = true, className } = props;
 
   return (
     <header className={cn(className, "header")}>

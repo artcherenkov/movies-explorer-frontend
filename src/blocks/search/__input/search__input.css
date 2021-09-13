@@ -10,3 +10,10 @@
   border: none;
   padding: 0;
 }
+
+@media (max-width: 500px) {
+  .search__input {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}

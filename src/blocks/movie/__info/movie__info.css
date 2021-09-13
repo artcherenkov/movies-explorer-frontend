@@ -8,3 +8,9 @@
     margin: 21px 0 0;
   }
 }
+
+@media (max-width: 500px) {
+  .movie__info {
+    margin-top: 12px;
+  }
+}
