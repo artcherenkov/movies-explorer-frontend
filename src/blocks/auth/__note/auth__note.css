@@ -7,3 +7,10 @@
 
   color: #8b8b8b;
 }
+
+@media (max-width: 500px) {
+  .auth__note {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

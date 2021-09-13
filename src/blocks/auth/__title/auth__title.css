@@ -8,3 +8,9 @@
   color: #ffffff;
   text-align: left;
 }
+
+@media (max-width: 500px) {
+  .auth__title {
+    margin: 49px 0 81px;
+  }
+}
