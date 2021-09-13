@@ -13,3 +13,10 @@
   bottom: 0;
   cursor: pointer;
 }
+
+@media (max-width: 500px) {
+  .not-found__button {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

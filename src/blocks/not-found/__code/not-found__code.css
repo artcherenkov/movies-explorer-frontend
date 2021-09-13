@@ -8,3 +8,10 @@
 
   color: #ffffff;
 }
+
+@media (max-width: 500px) {
+  .not-found__code {
+    font-size: 80px;
+    line-height: 97px;
+  }
+}
