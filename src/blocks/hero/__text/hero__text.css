@@ -15,3 +15,9 @@
     max-width: 260px;
   }
 }
+
+@media (max-width: 500px) {
+  .hero__text {
+    margin-bottom: 80px;
+  }
+}

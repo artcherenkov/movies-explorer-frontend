@@ -14,3 +14,12 @@
     background-position: 50% calc(50% - 133px);
   }
 }
+
+@media (max-width: 500px) {
+  .hero__container {
+    margin-top: 70px;
+    padding: 0 10px 30px;
+    background-position: 50% 0;
+    background-size: 210px auto;
+  }
+}

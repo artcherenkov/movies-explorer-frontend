@@ -19,3 +19,14 @@
     text-align: center;
   }
 }
+
+@media (max-width: 500px) {
+  .hero__title {
+    margin-top: 250px;
+    margin-bottom: 24px;
+    font-size: 30px;
+    line-height: 38px;
+    text-align: center;
+    letter-spacing: -0.04em;
+  }
+}
