@@ -1,0 +1,21 @@
+.student__about {
+  font-family: var(--font-inter);
+  margin: 0;
+  font-size: 14px;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+@media (max-width: 980px) {
+  .student__about {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@media (max-width: 500px) {
+  .student__about {
+    font-size: 11px;
+    line-height: 16px;
+  }
+}

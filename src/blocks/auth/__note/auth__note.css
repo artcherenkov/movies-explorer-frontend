@@ -1,0 +1,16 @@
+.auth__note {
+  margin: 16px 0 0;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+
+  color: #8b8b8b;
+}
+
+@media (max-width: 500px) {
+  .auth__note {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

@@ -1,0 +1,17 @@
+.search__container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 56px 30px 48px;
+}
+
+@media (max-width: 980px) {
+  .search__container {
+    padding-top: 66px;
+  }
+}
+
+@media (max-width: 500px) {
+  .search__container {
+    padding: 70px 14px 30px;
+  }
+}

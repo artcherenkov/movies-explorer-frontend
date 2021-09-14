@@ -1,0 +1,13 @@
+.search__toggle-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.search__toggle-input:disabled {
+}
+
+.search__toggle-input:focus {
+}

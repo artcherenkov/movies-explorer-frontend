@@ -1,0 +1,9 @@
+.profile__button_type_submit {
+  margin-top: 219px;
+}
+
+@media (max-width: 768px) {
+  .profile__button_type_submit {
+    margin-top: 209px;
+  }
+}

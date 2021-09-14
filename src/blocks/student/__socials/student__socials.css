@@ -1,0 +1,12 @@
+.student__socials {
+  margin: auto 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+@media (max-width: 500px) {
+  .student__socials {
+    margin-top: 40px;
+  }
+}

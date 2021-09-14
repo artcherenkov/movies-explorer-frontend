@@ -1,0 +1,21 @@
+.section__title {
+  margin: 0;
+  font-family: var(--font-inter);
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+
+  padding-bottom: 23px;
+  border-bottom: 1px solid var(--light-grey);
+}
+
+@media (max-width: 500px) {
+  .section__title {
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: -0.04em;
+    padding-bottom: 27px;
+  }
+}

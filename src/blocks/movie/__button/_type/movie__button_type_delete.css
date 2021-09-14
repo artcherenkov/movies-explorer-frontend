@@ -1,0 +1,5 @@
+.movie__button_type_delete {
+  width: 21px;
+  height: 21px;
+  background: #ee3465 url("../../../../images/icon-tick.svg") center no-repeat;
+}

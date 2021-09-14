@@ -1,0 +1,11 @@
+@media (max-width: 980px) {
+  .hero__title-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero__title-divider {
+    display: block;
+  }
+}

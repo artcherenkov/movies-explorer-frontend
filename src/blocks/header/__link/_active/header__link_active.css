@@ -1,0 +1,14 @@
+.header__link_active {
+  font-weight: 500;
+}
+
+.header__link_active:hover {
+  opacity: 1;
+  cursor: default;
+}
+
+@media (max-width: 800px) {
+  .header__link_active {
+    border-bottom: 1px solid white;
+  }
+}

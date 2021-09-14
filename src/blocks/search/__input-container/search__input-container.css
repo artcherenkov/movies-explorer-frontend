@@ -1,0 +1,19 @@
+.search__input-container {
+  display: flex;
+  padding: 14px 0 13px;
+  border-bottom: 1px solid #424242;
+  margin-bottom: 33px;
+}
+
+@media (max-width: 980px) {
+  .search__input-container {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .search__input-container {
+    padding-bottom: 9px;
+    margin-bottom: 41px;
+  }
+}

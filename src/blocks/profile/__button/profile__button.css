@@ -1,0 +1,17 @@
+.profile__button {
+  display: block;
+  border: none;
+  padding: 0;
+  background: transparent;
+  width: 100%;
+
+  font-family: var(--font-inter);
+  font-size: 13px;
+  line-height: 16px;
+
+  color: #ffffff;
+}
+
+.profile__button:not(:last-child) {
+  margin-bottom: 16px;
+}

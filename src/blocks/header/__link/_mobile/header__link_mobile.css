@@ -1,0 +1,9 @@
+.header__link_mobile {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .header__link_mobile {
+    display: block;
+  }
+}

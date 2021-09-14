@@ -1,0 +1,25 @@
+.hero__container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 75px 30px;
+  background: url("../../../images/bg-hero.svg") no-repeat;
+  background-position: calc(100% - 30px) 75px;
+}
+
+@media (max-width: 980px) {
+  .hero__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-position: 50% calc(50% - 133px);
+  }
+}
+
+@media (max-width: 500px) {
+  .hero__container {
+    margin-top: 70px;
+    padding: 0 10px 30px;
+    background-position: 50% 0;
+    background-size: 210px auto;
+  }
+}

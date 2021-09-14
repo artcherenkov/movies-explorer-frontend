@@ -1,0 +1,19 @@
+.diploma__columns {
+  margin-top: 70px;
+  margin-bottom: 110px;
+  display: flex;
+}
+
+@media (max-width: 980px) {
+  .diploma__columns {
+    margin-bottom: 93px;
+  }
+}
+
+@media (max-width: 500px) {
+  .diploma__columns {
+    margin-top: 61px;
+    margin-bottom: 60px;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,17 @@
+.section_gray {
+  background: var(--bg-grey);
+  padding: 100px 0 100px;
+}
+
+@media (max-width: 980px) {
+  .section_gray {
+    padding: 90px 0 89px;
+  }
+}
+
+@media (max-width: 500px) {
+  .section_gray {
+    padding: 50px 0 70px;
+    background: var(--bg-dark-grey);
+  }
+}

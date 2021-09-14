@@ -1,0 +1,24 @@
+.diploma__about {
+  margin: 0 0 26px;
+  font-family: var(--font-inter);
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+
+  color: #ffffff;
+}
+
+@media (max-width: 980px) {
+  .diploma__about {
+    margin: 0 0 22px;
+  }
+}
+
+@media (max-width: 500px) {
+  .diploma__about {
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 15px;
+  }
+}

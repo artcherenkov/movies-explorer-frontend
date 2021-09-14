@@ -1,0 +1,9 @@
+.portfolio__links-item:not(:last-child) {
+  border-bottom: 1px solid #424242;
+}
+
+@media (max-width: 500px) {
+  .portfolio__links-item:not(:last-child) {
+    border-color: #e6e6e6;
+  }
+}

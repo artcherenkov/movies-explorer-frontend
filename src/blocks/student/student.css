@@ -1,0 +1,9 @@
+.student {
+  padding-top: 66px;
+}
+
+@media (max-width: 500px) {
+  .student {
+    padding-top: 60px;
+  }
+}

@@ -1,0 +1,34 @@
+.search__input-replacement {
+  width: 34px;
+  height: 14px;
+  background: #343434;
+  margin-right: 14px;
+  border-radius: 20px;
+  padding: 2px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+}
+
+.search__input-replacement::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #a0a0a0;
+  border-radius: 50%;
+  transition: 300ms;
+}
+
+@media (max-width: 980px) {
+  .search__input-replacement {
+    margin-right: 0;
+    margin-left: 17px;
+  }
+}
+
+@media (max-width: 500px) {
+  .search__input-replacement {
+    margin-left: 14px;
+  }
+}

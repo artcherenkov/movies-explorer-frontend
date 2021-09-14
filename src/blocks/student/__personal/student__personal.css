@@ -1,0 +1,17 @@
+.student__personal {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 980px) {
+  .student__personal {
+    margin-right: 40px;
+  }
+}
+
+@media (max-width: 500px) {
+  .student__personal {
+    margin-right: 0;
+  }
+}

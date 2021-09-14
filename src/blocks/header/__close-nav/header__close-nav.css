@@ -1,0 +1,31 @@
+.header__close-nav {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .header__close-nav {
+    display: block;
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: url("../../../images/icon-close.svg");
+    background-size: cover;
+    border: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .header__close-nav {
+    top: 13px;
+    right: 13px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: url("../../../images/icon-close.svg");
+    background-size: cover;
+    border: none;
+  }
+}

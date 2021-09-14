@@ -1,0 +1,19 @@
+.auth__container {
+  max-width: 400px;
+  margin: 0 auto;
+  height: 100vh;
+
+  max-height: 560px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 500px) {
+  .auth__container {
+    padding-top: 56px;
+    align-items: center;
+    max-height: initial;
+    padding-bottom: 28px;
+    box-sizing: border-box;
+  }
+}

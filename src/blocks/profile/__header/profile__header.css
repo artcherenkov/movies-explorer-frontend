@@ -1,0 +1,18 @@
+.profile__header {
+  margin: 74px 0 123px;
+  font-family: var(--font-inter);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .profile__header {
+    margin-top: 236px;
+    margin-bottom: 96px;
+  }
+}

@@ -1,0 +1,19 @@
+.search__input {
+  flex-grow: 1;
+  font-family: var(--font-inter);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 34px;
+  color: var(--font-grey);
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+@media (max-width: 500px) {
+  .search__input {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
