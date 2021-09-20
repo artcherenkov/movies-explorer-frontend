@@ -1,38 +1,53 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import validator from "validator";
 import AuthForm from "../components/AuthForm/AuthForm";
 import Input from "../components/Input/Input";
+import { login } from "../utils/MainApi";
+import useForm from "../hooks/useForm";
 
 const Login = () => {
-  const [email, setEmail] = useState("someemail@gmail.com");
-  const [password, setPassword] = useState("strongpassword");
+  const { values, handleChange, errors, setError, isValid } = useForm();
 
-  const onEmailChange = (evt) => setEmail(evt.target.value);
-  const onPasswordChange = (evt) => setPassword(evt.target.value);
+  const onChange = (evt) => {
+    handleChange(evt);
+    if (evt.target.name === "email") {
+      if (!validator.isEmail(evt.target.value)) {
+        setError("email", "Введите валидный email.");
+      }
+    }
+  };
 
   const onSubmit = (evt) => {
     evt.preventDefault();
-    console.log(`email: ${email}\n`, `password: ${password}\n`);
+    login(values)
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
   };
 
   return (
     <AuthForm title="Рады видеть!" onSubmit={onSubmit}>
       <Input
         label="E-mail"
-        value={email}
-        onChange={onEmailChange}
+        name="email"
+        value={values.email}
+        onChange={onChange}
         type="email"
         autoComplete="off"
+        error={errors.email}
+        required
       />
       <Input
         label="Пароль"
-        value={password}
-        onChange={onPasswordChange}
+        name="password"
+        value={values.password}
+        onChange={onChange}
         type="password"
         autoComplete="off"
-        error={1}
+        error={errors.password}
+        minLength={8}
+        required
       />
-      <button className="auth__submit button" type="submit">
+      <button className="auth__submit button" type="submit" disabled={!isValid}>
         Войти
       </button>
       <p className="auth__note">

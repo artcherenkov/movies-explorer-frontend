@@ -7,5 +7,5 @@
 
   color: var(--accent-pink);
   position: absolute;
-  bottom: -15px;
+  top: 100%;
 }

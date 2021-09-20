@@ -17,6 +17,16 @@
   border-radius: 3px;
 }
 
+.auth__submit:disabled {
+  background: #f8f8f8;
+  color: #c2c2c2;
+  cursor: not-allowed;
+}
+
+.auth__submit:disabled:hover {
+  opacity: 1;
+}
+
 @media (max-width: 500px) {
   .auth__submit {
     margin: auto 0 0;

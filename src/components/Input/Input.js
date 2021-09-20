@@ -10,7 +10,9 @@ const Input = (props) => (
       {...props}
     />
     {props.error && (
-      <span className="auth__error-msg">Что-то пошло не так...</span>
+      <span className="auth__error-msg">
+        {props.error.length ? props.error : "Что-то пошло не так..."}
+      </span>
     )}
   </div>
 );
