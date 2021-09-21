@@ -10,27 +10,32 @@ import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 import { getUserInfo } from "../utils/MainApi";
+import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 
 const App = () => {
   const history = useHistory();
   const [currentUser, setCurrentUser] = useState();
   const [signedIn, setSignedIn] = useState(false);
 
-  useEffect(() => {
-    getUserInfo()
-      .then(({ data }) => setCurrentUser(data))
-      .catch(() => history.push("/signin"));
-  }, [signedIn]);
-
   const onSignin = () => {
-    history.push("/");
     setSignedIn(true);
+    history.push("/");
   };
 
   const onSignout = () => {
-    history.push("/signin");
     setSignedIn(false);
   };
+
+  useEffect(() => {
+    if (!signedIn) {
+      getUserInfo()
+        .then(({ data }) => {
+          setCurrentUser(data);
+          onSignin();
+        })
+        .catch(() => history.push("/signin"));
+    }
+  }, [signedIn]);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -41,18 +46,18 @@ const App = () => {
         <Route exact path="/signup">
           <Register onSignin={onSignin} />
         </Route>
-        <Route exact path="/movies">
+        <ProtectedRoute signedIn={signedIn} exact path="/movies">
           <Movies />
-        </Route>
-        <Route exact path="/saved-movies">
+        </ProtectedRoute>
+        <ProtectedRoute signedIn={signedIn} exact path="/saved-movies">
           <SavedMovies />
-        </Route>
-        <Route exact path="/profile">
+        </ProtectedRoute>
+        <ProtectedRoute signedIn={signedIn} exact path="/profile">
           <Profile onSignout={onSignout} />
-        </Route>
-        <Route exact path="/">
+        </ProtectedRoute>
+        <ProtectedRoute signedIn={signedIn} exact path="/">
           <Home />
-        </Route>
+        </ProtectedRoute>
         <Route>
           <NotFound />
         </Route>
