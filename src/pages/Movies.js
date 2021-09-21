@@ -4,7 +4,8 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import SearchBar from "../components/SearchBar/SearchBar";
 import MoviesList from "../components/MoviesList/MoviesList";
-import getResponseData from "../utils/api";
+import { getFavoriteMovies } from "../utils/MainApi";
+import getMovies from "../utils/MoviesApi";
 
 const onFilter = (movies, { search, isShort }) =>
   movies.filter((m) => {
@@ -19,21 +20,59 @@ const onFilter = (movies, { search, isShort }) =>
     return containsSearchString;
   });
 
+const adaptMovieToClient = (movie) => {
+  const adapted = {
+    ...movie,
+    movieId: movie.id,
+    image: `https://api.nomoreparties.co${movie.image.url}`,
+    thumbnail: `https://api.nomoreparties.co${movie.image.formats.thumbnail.url}`,
+    trailer: movie.trailerLink,
+  };
+
+  delete adapted.id;
+  delete adapted.trailerLink;
+  delete adapted.created_at;
+  delete adapted.updated_at;
+
+  return adapted;
+};
+
+const setMoviesFavoriteState = (movies, favoriteMovies) => {
+  const favoriteMoviesIds = favoriteMovies.map((m) => m.movieId);
+  return movies.map((m) => {
+    if (favoriteMoviesIds.includes(m.movieId)) {
+      return {
+        ...m,
+        isFavorite: true,
+        _id: favoriteMovies.find((mov) => mov.movieId === m.movieId)._id,
+      };
+    }
+    return m;
+  });
+};
+
 const Movies = () => {
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState(null);
+  const [moviesData, setMoviesData] = useState(null);
   const [movies, setMovies] = useState(null);
+  // eslint-disable-next-line no-unused-vars
+  const [favoriteMovies, setFavoriteMovies] = useState(null);
 
   const handleSearch = useCallback(
     (search) => {
       // если данные не загружены, загрузим и отфильтруем
-      if (!data) {
+      if (!moviesData) {
         setLoading(true);
-        fetch("https://api.nomoreparties.co/beatfilm-movies")
-          .then(getResponseData)
-          .then((res) => {
-            setData(res);
-            const filtered = onFilter(res, search);
+        Promise.all([getMovies(), getFavoriteMovies()])
+          .then(([data, favoriteMoviesData]) => {
+            const adaptedMovies = data.map(adaptMovieToClient);
+            const withFavoriteState = setMoviesFavoriteState(
+              adaptedMovies,
+              favoriteMoviesData.data
+            );
+            setMoviesData(withFavoriteState);
+
+            const filtered = onFilter(withFavoriteState, search);
             setMovies(filtered);
           })
           .catch((err) => console.log(err))
@@ -42,10 +81,10 @@ const Movies = () => {
       }
 
       // отфильтруем данные
-      const filtered = onFilter(data, search);
+      const filtered = onFilter(moviesData, search);
       setMovies(filtered);
     },
-    [data]
+    [moviesData]
   );
 
   return (

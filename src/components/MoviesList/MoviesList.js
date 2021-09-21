@@ -12,7 +12,7 @@ const MoviesList = (props) => {
     <section className="movies">
       <ul className="movies__list">
         {props.movies.map((m) => (
-          <li className="movies__item" key={m.id}>
+          <li className="movies__item" key={m.movieId}>
             <Movie movie={m} />
           </li>
         ))}

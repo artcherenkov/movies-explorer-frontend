@@ -35,3 +35,27 @@ export const getUserInfo = () =>
   fetch(`${BASE_URL}/users/me`, {
     credentials: "include",
   }).then(getResponseData);
+
+export const getFavoriteMovies = () =>
+  fetch(`${BASE_URL}/movies`, {
+    credentials: "include",
+  }).then(getResponseData);
+
+export const setLike = (movie) =>
+  fetch(`${BASE_URL}/movies`, {
+    method: "POST",
+    credentials: "include",
+    body: JSON.stringify(movie),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then(getResponseData);
+
+export const deleteLike = (movieId) =>
+  fetch(`${BASE_URL}/movies/${movieId}`, {
+    method: "DELETE",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then(getResponseData);
