@@ -58,7 +58,7 @@ const Movie = (props) => {
 
   return (
     <a
-      href="https://google.com"
+      href={movie.trailer}
       target="_blank"
       rel="noreferrer"
       onClick={onMovieClick}
