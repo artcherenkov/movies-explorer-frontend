@@ -20,7 +20,10 @@ const App = () => {
 
   const onSignin = () => {
     setSignedIn(true);
-    history.push(location.pathname);
+    const lastLocation = location.pathname;
+    if (lastLocation === "/signin" || lastLocation === "/signup") {
+      history.push("/");
+    }
   };
 
   const onSignout = () => {
@@ -36,7 +39,7 @@ const App = () => {
           setCurrentUser(data);
           onSignin();
         })
-        .catch(() => history.push("/signin"));
+        .catch((err) => console.log(err));
     }
   }, [signedIn]);
 
