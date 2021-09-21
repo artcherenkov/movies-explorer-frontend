@@ -1,12 +1,15 @@
 import { useState } from "react";
 import cn from "classnames";
+import { signOut } from "../../utils/MainApi";
 
-const Profile = () => {
+const Profile = (props) => {
   const [name, setName] = useState("Артём");
   const [email, setEmail] = useState("someemail@gmail.com");
 
   const onNameChange = (evt) => setName(evt.target.value);
   const onEmailChange = (evt) => setEmail(evt.target.value);
+
+  const onSignOutClick = () => signOut().then(props.onSignout);
 
   return (
     <section className="profile">
@@ -47,6 +50,8 @@ const Profile = () => {
             Редактировать
           </button>
           <button
+            onClick={onSignOutClick}
+            type="button"
             className={cn(
               "profile__button",
               "profile__button_type_signout",

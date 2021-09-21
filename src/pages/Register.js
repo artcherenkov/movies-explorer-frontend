@@ -1,11 +1,14 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import validator from "validator";
+import Loader from "react-loader-spinner";
 import AuthForm from "../components/AuthForm/AuthForm";
 import Input from "../components/Input/Input";
 import useForm from "../hooks/useForm";
-import { register } from "../utils/MainApi";
+import { login, register } from "../utils/MainApi";
 
-const Register = () => {
+const Register = (props) => {
+  const [loading, setLoading] = useState(false);
   const { values, errors, isValid, setError, handleChange } = useForm();
 
   const onChange = (evt) => {
@@ -19,9 +22,12 @@ const Register = () => {
 
   const onSubmit = (evt) => {
     evt.preventDefault();
+    setLoading(true);
     register(values)
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
+      .then(() => login({ email: values.email, password: values.password }))
+      .then(props.onSignin)
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
   };
 
   const pattern = String(/^[a-zA-Zа-яА-ЯёЁ\s-]+$/).replaceAll("/", "");
@@ -62,9 +68,18 @@ const Register = () => {
         minLength={8}
         required
       />
-      <button className="auth__submit button" type="submit" disabled={!isValid}>
-        Зарегистрироваться
+      <button
+        className="auth__submit button"
+        type="submit"
+        disabled={!isValid || loading}
+      >
+        {loading ? (
+          <Loader type="TailSpin" color="#fff" height={14} width={15} />
+        ) : (
+          "Зарегистрироваться"
+        )}
       </button>
+
       <p className="auth__note">
         Уже зарегистрированы?{" "}
         <Link className="auth__link link" to="/signin">

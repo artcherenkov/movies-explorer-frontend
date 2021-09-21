@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
 import validator from "validator";
+import { useState } from "react";
+import Loader from "react-loader-spinner";
 import AuthForm from "../components/AuthForm/AuthForm";
 import Input from "../components/Input/Input";
-import { login } from "../utils/MainApi";
 import useForm from "../hooks/useForm";
+import { login } from "../utils/MainApi";
 
-const Login = () => {
+const Login = (props) => {
+  const [loading, setLoading] = useState(false);
   const { values, handleChange, errors, setError, isValid } = useForm();
 
   const onChange = (evt) => {
@@ -19,9 +22,11 @@ const Login = () => {
 
   const onSubmit = (evt) => {
     evt.preventDefault();
+    setLoading(true);
     login(values)
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
+      .then(props.onSignin)
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -48,7 +53,11 @@ const Login = () => {
         required
       />
       <button className="auth__submit button" type="submit" disabled={!isValid}>
-        Войти
+        {loading ? (
+          <Loader type="TailSpin" color="#fff" height={14} width={15} />
+        ) : (
+          "Войти"
+        )}
       </button>
       <p className="auth__note">
         Ещё не зарегистрированы?{" "}
