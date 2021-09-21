@@ -21,7 +21,14 @@ const MoviesList = (props) => {
           </li>
         ))}
       </ul>
-      <button className="button movies__button-more">Ещё</button>
+      {props.showButton && (
+        <button
+          className="button movies__button-more"
+          onClick={props.onMoreClick}
+        >
+          Ещё
+        </button>
+      )}
     </section>
   );
 };

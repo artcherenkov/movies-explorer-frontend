@@ -21,9 +21,12 @@ const App = () => {
   const onSignin = () => {
     setSignedIn(true);
     const lastLocation = location.pathname;
+
     if (lastLocation === "/signin" || lastLocation === "/signup") {
-      history.push("/");
+      return history.push("/");
     }
+
+    return history.push(lastLocation);
   };
 
   const onSignout = () => {

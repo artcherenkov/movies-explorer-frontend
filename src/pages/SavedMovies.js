@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import Loader from "react-loader-spinner";
 import Header from "../components/Header/Header";
 import SearchBar from "../components/SearchBar/SearchBar";
 import MoviesList from "../components/MoviesList/MoviesList";
 import Footer from "../components/Footer/Footer";
 import { onFilter } from "./Movies";
 import { getFavoriteMovies } from "../utils/MainApi";
+import Loader from "../components/Loader/Loader";
 
 const SavedMovies = () => {
   const [movies, setMovies] = useState([]);

@@ -1,11 +1,30 @@
-import { useCallback, useState } from "react";
-import Loader from "react-loader-spinner";
+import { useCallback, useEffect, useState } from "react";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import SearchBar from "../components/SearchBar/SearchBar";
 import MoviesList from "../components/MoviesList/MoviesList";
 import { getFavoriteMovies } from "../utils/MainApi";
 import getMovies from "../utils/MoviesApi";
+import Loader from "../components/Loader/Loader";
+import useWindowSize from "../hooks/useWindowSize";
+
+const Breakpoint = {
+  L: {
+    width: 1200,
+    totalCards: 12,
+    perPage: 3,
+  },
+  M: {
+    width: 768,
+    totalCards: 8,
+    perPage: 2,
+  },
+  S: {
+    width: 360,
+    totalCards: 5,
+    perPage: 2,
+  },
+};
 
 export const onFilter = (movies, { search, isShort }) =>
   movies.filter((m) => {
@@ -55,8 +74,6 @@ const Movies = () => {
   const [loading, setLoading] = useState(false);
   const [moviesData, setMoviesData] = useState(null);
   const [movies, setMovies] = useState(null);
-  // eslint-disable-next-line no-unused-vars
-  const [favoriteMovies, setFavoriteMovies] = useState(null);
 
   const handleSearch = useCallback(
     (search) => {
@@ -87,6 +104,41 @@ const Movies = () => {
     [moviesData]
   );
 
+  const [cardsPaging, setCardsPaging] = useState({
+    total: Breakpoint.L.totalCards,
+    perPage: Breakpoint.L.perPage,
+  });
+  const [cardsCount, setCardsCount] = useState(cardsPaging.total);
+
+  const { width } = useWindowSize();
+
+  const onMoreClick = useCallback(() => {
+    setCardsCount(cardsCount + cardsPaging.perPage);
+  }, [cardsCount, cardsPaging]);
+
+  useEffect(() => {
+    setCardsCount(cardsPaging.total);
+  }, [movies, cardsPaging]);
+
+  useEffect(() => {
+    if (width >= Breakpoint.L.width) {
+      setCardsPaging({
+        total: Breakpoint.L.totalCards,
+        perPage: Breakpoint.L.perPage,
+      });
+    } else if (width >= Breakpoint.M.width) {
+      setCardsPaging({
+        total: Breakpoint.M.totalCards,
+        perPage: Breakpoint.M.perPage,
+      });
+    } else {
+      setCardsPaging({
+        total: Breakpoint.S.totalCards,
+        perPage: Breakpoint.S.perPage,
+      });
+    }
+  }, [width]);
+
   return (
     <>
       <Header />
@@ -94,7 +146,11 @@ const Movies = () => {
       {loading ? (
         <Loader type="TailSpin" color="#fff" height={50} width={50} />
       ) : (
-        <MoviesList movies={movies} />
+        <MoviesList
+          movies={movies?.slice(0, cardsCount)}
+          onMoreClick={onMoreClick}
+          showButton={cardsCount < movies?.length}
+        />
       )}
       <Footer />
     </>
