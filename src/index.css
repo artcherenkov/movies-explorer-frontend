@@ -3,6 +3,7 @@
 @import url("./vendor/variables.css");
 
 @import url("./blocks/root/root.css");
+@import url("./blocks/root/__footer/root__footer.css");
 @import url("./blocks/root/__header/root__header.css");
 
 @import url("./blocks/button/button.css");

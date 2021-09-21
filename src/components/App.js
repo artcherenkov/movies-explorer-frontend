@@ -58,9 +58,9 @@ const App = () => {
         <ProtectedRoute signedIn={signedIn} exact path="/profile">
           <Profile onSignout={onSignout} onUserInfoChange={onUserInfoChange} />
         </ProtectedRoute>
-        <ProtectedRoute signedIn={signedIn} exact path="/">
+        <Route exact path="/">
           <Home />
-        </ProtectedRoute>
+        </Route>
         <Route>
           <NotFound />
         </Route>
