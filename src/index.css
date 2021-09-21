@@ -85,6 +85,7 @@
 @import url("./blocks/movies/__button-more/movies__button-more.css");
 @import url("./blocks/movies/__item/movies__item.css");
 @import url("./blocks/movies/__list/movies__list.css");
+@import url("./blocks/movies/__not-found/movies__not-found.css");
 
 @import url("./blocks/not-found/not-found.css");
 @import url("./blocks/not-found/__button/not-found__button.css");

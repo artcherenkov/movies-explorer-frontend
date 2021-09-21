@@ -3,7 +3,7 @@ import DeleteButton from "./components/DeleteButton";
 import SaveButton from "./components/SaveButton";
 
 const Movie = (props) => {
-  const { src, isFavorite: initialIsFavorite = false } = props;
+  const { movie, isFavorite: initialIsFavorite = false } = props;
 
   const [isFavorite, setIsFavorite] = useState(initialIsFavorite);
   const [showSaveButton, setShowSaveButton] = useState(false);
@@ -14,6 +14,14 @@ const Movie = (props) => {
   const onSaveButtonClick = () => setIsFavorite(true);
   const onDeleteButtonClick = () => setIsFavorite(false);
 
+  const formatDuration = (duration) => {
+    const hours = Math.floor(duration / 60);
+    const minutes = duration - hours * 60;
+    return hours ? `${hours}ч ${minutes}м` : `${minutes}м`;
+  };
+
+  formatDuration(movie.duration);
+
   return (
     <article className="movie">
       <div
@@ -21,10 +29,14 @@ const Movie = (props) => {
         onMouseOver={onMovieMouseOver}
         onMouseLeave={onMovieMouseLeave}
       >
-        <img className="movie__pic" src={src} alt="33 слова о дизайне" />
+        <img
+          className="movie__pic"
+          src={`https://api.nomoreparties.co${movie.image.url}`}
+          alt={movie.nameRU}
+        />
         <div className="movie__info">
-          <h2 className="movie__title">33 слова о дизайне</h2>
-          <p className="movie__duration">1ч 17м</p>
+          <h2 className="movie__title">{movie.nameRU}</h2>
+          <p className="movie__duration">{formatDuration(movie.duration)}</p>
         </div>
         {isFavorite ? (
           <DeleteButton onClick={onDeleteButtonClick} />

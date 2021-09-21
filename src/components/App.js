@@ -15,14 +15,11 @@ const App = () => {
   const history = useHistory();
   const [currentUser, setCurrentUser] = useState();
   const [signedIn, setSignedIn] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
     getUserInfo()
       .then(({ data }) => setCurrentUser(data))
-      .catch(() => history.push("/signin"))
-      .finally(() => setLoading(false));
+      .catch(() => history.push("/signin"));
   }, [signedIn]);
 
   const onSignin = () => {
@@ -34,8 +31,6 @@ const App = () => {
     history.push("/signin");
     setSignedIn(false);
   };
-
-  console.log(loading);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
