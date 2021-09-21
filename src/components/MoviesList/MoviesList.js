@@ -1,6 +1,14 @@
 import Movie from "../Movie/Movie";
 
 const MoviesList = (props) => {
+  if (props.error) {
+    return (
+      <h2 className="movies__not-found">
+        Во время запроса произошла ошибка. Возможно, проблема с соединением или
+        сервер недоступен. Подождите немного и попробуйте ещё раз
+      </h2>
+    );
+  }
   if (!props.movies) {
     return <h2 className="movies__not-found">Нужно ввести ключевое слово</h2>;
   }

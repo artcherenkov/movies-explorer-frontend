@@ -11,6 +11,7 @@ const SavedMovies = () => {
   const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const [currentSearch, setCurrentSearch] = useState({
     search: "",
     isShort: false,
@@ -23,7 +24,7 @@ const SavedMovies = () => {
         setMovies(data);
         setFilteredMovies(data);
       })
-      .catch((err) => console.log(err))
+      .catch((err) => setError(err))
       .finally(() => setLoading(false));
   }, []);
 
@@ -46,6 +47,7 @@ const SavedMovies = () => {
         <Loader type="TailSpin" color="#fff" height={50} width={50} />
       ) : (
         <MoviesList
+          error={error}
           movies={filteredMovies}
           onRemoveClick={handleRemoveMovieClick}
           favorites

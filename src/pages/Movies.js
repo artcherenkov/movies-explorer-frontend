@@ -72,6 +72,7 @@ const setMoviesFavoriteState = (movies, favoriteMovies) => {
 
 const Movies = () => {
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const [moviesData, setMoviesData] = useState(null);
   const [movies, setMovies] = useState(null);
 
@@ -92,7 +93,7 @@ const Movies = () => {
             const filtered = onFilter(withFavoriteState, search);
             setMovies(filtered);
           })
-          .catch((err) => console.log(err))
+          .catch((err) => setError(err))
           .finally(() => setLoading(false));
         return;
       }
@@ -147,6 +148,7 @@ const Movies = () => {
         <Loader type="TailSpin" color="#fff" height={50} width={50} />
       ) : (
         <MoviesList
+          error={error}
           movies={movies?.slice(0, cardsCount)}
           onMoreClick={onMoreClick}
           showButton={cardsCount < movies?.length}
