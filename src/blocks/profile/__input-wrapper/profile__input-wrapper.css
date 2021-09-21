@@ -1,6 +1,7 @@
 .profile__input-wrapper {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .profile__input-wrapper:not(:last-of-type) {

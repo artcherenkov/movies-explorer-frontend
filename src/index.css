@@ -105,9 +105,11 @@
 @import url("./blocks/profile/__button/_type/profile__button_type_signout.css");
 @import url("./blocks/profile/__button/_type/profile__button_type_submit.css");
 @import url("./blocks/profile/__container/profile__container.css");
+@import url("./blocks/profile/__error/profile__error.css");
 @import url("./blocks/profile/__form/profile__form.css");
 @import url("./blocks/profile/__header/profile__header.css");
 @import url("./blocks/profile/__input/profile__input.css");
+@import url("./blocks/profile/__input/_error/profile__input_error.css");
 @import url("./blocks/profile/__input-wrapper/profile__input-wrapper.css");
 @import url("./blocks/profile/__label/profile__label.css");
 

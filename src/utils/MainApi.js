@@ -36,6 +36,16 @@ export const getUserInfo = () =>
     credentials: "include",
   }).then(getResponseData);
 
+export const patchUserInfo = (data) =>
+  fetch(`${BASE_URL}/users/me`, {
+    method: "PATCH",
+    body: JSON.stringify(data),
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then(getResponseData);
+
 export const getFavoriteMovies = () =>
   fetch(`${BASE_URL}/movies`, {
     credentials: "include",

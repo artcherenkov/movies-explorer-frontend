@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Route, Switch, useHistory } from "react-router-dom";
+import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 
 import Login from "../pages/Login";
 import Register from "../pages/Register";
@@ -14,17 +14,20 @@ import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 
 const App = () => {
   const history = useHistory();
+  const location = useLocation();
   const [currentUser, setCurrentUser] = useState();
   const [signedIn, setSignedIn] = useState(false);
 
   const onSignin = () => {
     setSignedIn(true);
-    history.push("/");
+    history.push(location.pathname);
   };
 
   const onSignout = () => {
     setSignedIn(false);
   };
+
+  const onUserInfoChange = ({ data }) => setCurrentUser(data);
 
   useEffect(() => {
     if (!signedIn) {
@@ -53,7 +56,7 @@ const App = () => {
           <SavedMovies />
         </ProtectedRoute>
         <ProtectedRoute signedIn={signedIn} exact path="/profile">
-          <Profile onSignout={onSignout} />
+          <Profile onSignout={onSignout} onUserInfoChange={onUserInfoChange} />
         </ProtectedRoute>
         <ProtectedRoute signedIn={signedIn} exact path="/">
           <Home />

@@ -1,0 +1,11 @@
+.profile__error {
+  font-family: var(--font-inter);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+
+  color: var(--accent-pink);
+  position: absolute;
+  top: calc(100% + 3px);
+}
