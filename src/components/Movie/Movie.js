@@ -12,6 +12,11 @@ const adaptMovieToServer = (movie) => {
 
   return adapted;
 };
+const formatDuration = (duration) => {
+  const hours = Math.floor(duration / 60);
+  const minutes = duration - hours * 60;
+  return hours ? `${hours}ч ${minutes}м` : `${minutes}м`;
+};
 
 const Movie = (props) => {
   const { movie: initialMovie } = props;
@@ -29,20 +34,20 @@ const Movie = (props) => {
       })
       .catch((err) => console.log(err));
   };
-  const onDeleteButtonClick = () =>
+  const onDeleteButtonClick = () => {
     deleteLike(movie._id)
       .then(() => {
         setMovie((prevMovie) => adaptMovieToServer(prevMovie));
       })
       .catch((err) => console.log(err));
-
-  const formatDuration = (duration) => {
-    const hours = Math.floor(duration / 60);
-    const minutes = duration - hours * 60;
-    return hours ? `${hours}ч ${minutes}м` : `${minutes}м`;
   };
-
-  formatDuration(movie.duration);
+  const onRemoveButtonClick = () =>
+    props.onRemoveClick(movie._id, movie.movieId);
+  const onMovieClick = (evt) => {
+    if (evt.target.tagName.toLowerCase() === "button") {
+      evt.preventDefault();
+    }
+  };
 
   const renderDefaultControls = () =>
     movie.isFavorite ? (
@@ -52,27 +57,31 @@ const Movie = (props) => {
     );
 
   return (
-    <article className="movie">
-      <div
-        className="movie__container"
-        onMouseOver={onMovieMouseOver}
-        onMouseLeave={onMovieMouseLeave}
-      >
-        <img className="movie__pic" src={movie.image} alt={movie.nameRU} />
-        <div className="movie__info">
-          <h2 className="movie__title">{movie.nameRU}</h2>
-          <p className="movie__duration">{formatDuration(movie.duration)}</p>
+    <a
+      href="https://google.com"
+      target="_blank"
+      rel="noreferrer"
+      onClick={onMovieClick}
+    >
+      <article className="movie">
+        <div
+          className="movie__container"
+          onMouseOver={onMovieMouseOver}
+          onMouseLeave={onMovieMouseLeave}
+        >
+          <img className="movie__pic" src={movie.image} alt={movie.nameRU} />
+          <div className="movie__info">
+            <h2 className="movie__title">{movie.nameRU}</h2>
+            <p className="movie__duration">{formatDuration(movie.duration)}</p>
+          </div>
+          {props.favorite ? (
+            <RemoveButton show={showSaveButton} onClick={onRemoveButtonClick} />
+          ) : (
+            renderDefaultControls()
+          )}
         </div>
-        {props.favorite ? (
-          <RemoveButton
-            show={showSaveButton}
-            onClick={() => props.onRemoveClick(movie.movieId)}
-          />
-        ) : (
-          renderDefaultControls()
-        )}
-      </div>
-    </article>
+      </article>
+    </a>
   );
 };
 

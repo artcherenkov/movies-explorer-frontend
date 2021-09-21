@@ -4,7 +4,7 @@ import SearchBar from "../components/SearchBar/SearchBar";
 import MoviesList from "../components/MoviesList/MoviesList";
 import Footer from "../components/Footer/Footer";
 import { onFilter } from "./Movies";
-import { getFavoriteMovies } from "../utils/MainApi";
+import { deleteLike, getFavoriteMovies } from "../utils/MainApi";
 import Loader from "../components/Loader/Loader";
 
 const SavedMovies = () => {
@@ -34,9 +34,13 @@ const SavedMovies = () => {
 
   const handleSearch = (search) => setCurrentSearch(search);
 
-  const handleRemoveMovieClick = (movieId) => {
-    const newMovies = [...movies].filter((m) => m.movieId !== movieId);
-    setMovies(newMovies);
+  const handleRemoveMovieClick = (_id, movieId) => {
+    deleteLike(_id)
+      .then(() => {
+        const newMovies = [...movies].filter((m) => m.movieId !== movieId);
+        setMovies(newMovies);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
