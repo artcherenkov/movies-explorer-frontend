@@ -23,7 +23,7 @@ const App = () => {
     const lastLocation = location.pathname;
 
     if (lastLocation === "/signin" || lastLocation === "/signup") {
-      return history.push("/");
+      return history.push("/movies");
     }
 
     return history.push(lastLocation);
