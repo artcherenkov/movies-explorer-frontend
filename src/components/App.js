@@ -18,19 +18,27 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState();
   const [signedIn, setSignedIn] = useState(false);
 
-  const onSignin = () => {
-    setSignedIn(true);
+  const redirectOnSignin = () => {
     const lastLocation = location.pathname;
-
     if (lastLocation === "/signin" || lastLocation === "/signup") {
       return history.push("/movies");
     }
-
     return history.push(lastLocation);
+  };
+
+  const onSignin = () => {
+    getUserInfo()
+      .then(({ data }) => {
+        setSignedIn(true);
+        setCurrentUser(data);
+        redirectOnSignin();
+      })
+      .catch((err) => console.log(err));
   };
 
   const onSignout = () => {
     setSignedIn(false);
+    setCurrentUser(null);
   };
 
   const onUserInfoChange = ({ data }) => setCurrentUser(data);
@@ -40,7 +48,7 @@ const App = () => {
       getUserInfo()
         .then(({ data }) => {
           setCurrentUser(data);
-          onSignin();
+          setSignedIn(true);
         })
         .catch((err) => console.log(err));
     }

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import validator from "validator";
 import Loader from "react-loader-spinner";
+import cn from "classnames";
 import AuthForm from "../components/AuthForm/AuthForm";
 import Input from "../components/Input/Input";
 import useForm from "../hooks/useForm";
@@ -9,6 +10,7 @@ import { login, register } from "../utils/MainApi";
 
 const Register = (props) => {
   const [loading, setLoading] = useState(false);
+  const [fetchError, setFetchError] = useState("");
   const { values, errors, isValid, setError, handleChange } = useForm();
 
   const onChange = (evt) => {
@@ -26,7 +28,7 @@ const Register = (props) => {
     register(values)
       .then(() => login({ email: values.email, password: values.password }))
       .then(props.onSignin)
-      .catch((err) => console.log(err))
+      .catch(setFetchError)
       .finally(() => setLoading(false));
   };
 
@@ -68,6 +70,9 @@ const Register = (props) => {
         minLength={8}
         required
       />
+      <p className={cn("auth__error", { auth__error_show: fetchError })}>
+        Произошла ошибка. Повторите попытку позже.
+      </p>
       <button
         className="auth__submit button"
         type="submit"

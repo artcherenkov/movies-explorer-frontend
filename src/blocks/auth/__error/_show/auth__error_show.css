@@ -1,0 +1,4 @@
+.auth__error_show {
+  visibility: visible;
+  z-index: 1;
+}

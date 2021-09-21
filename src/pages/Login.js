@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import validator from "validator";
 import { useState } from "react";
 import Loader from "react-loader-spinner";
+import cn from "classnames";
 import AuthForm from "../components/AuthForm/AuthForm";
 import Input from "../components/Input/Input";
 import useForm from "../hooks/useForm";
@@ -9,6 +10,7 @@ import { login } from "../utils/MainApi";
 
 const Login = (props) => {
   const [loading, setLoading] = useState(false);
+  const [fetchError, setFetchError] = useState("");
   const { values, handleChange, errors, setError, isValid } = useForm();
 
   const onChange = (evt) => {
@@ -25,7 +27,7 @@ const Login = (props) => {
     setLoading(true);
     login(values)
       .then(props.onSignin)
-      .catch((err) => console.log(err))
+      .catch(setFetchError)
       .finally(() => setLoading(false));
   };
 
@@ -52,6 +54,9 @@ const Login = (props) => {
         minLength={8}
         required
       />
+      <p className={cn("auth__error", { auth__error_show: fetchError })}>
+        Произошла ошибка. Повторите попытку позже.
+      </p>
       <button className="auth__submit button" type="submit" disabled={!isValid}>
         {loading ? (
           <Loader type="TailSpin" color="#fff" height={14} width={15} />

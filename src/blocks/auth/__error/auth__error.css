@@ -1,0 +1,10 @@
+.auth__error {
+  font-family: var(--font-inter);
+  font-size: 12px;
+  margin-top: auto;
+  visibility: hidden;
+  position: relative;
+  z-index: -10;
+
+  color: var(--accent-pink);
+}
