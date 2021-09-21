@@ -3,14 +3,19 @@ import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-import Movies from "../pages/Movies";
 import SavedMovies from "../pages/SavedMovies";
+import Movies from "../pages/Movies";
 import Profile from "../pages/Profile";
 import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 import { getUserInfo } from "../utils/MainApi";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
+import {
+  getUserInfoFromStorage,
+  removeUserInfoFromStorage,
+  setUserInfoInStorage,
+} from "../utils/storage";
 
 const App = () => {
   const history = useHistory();
@@ -31,23 +36,37 @@ const App = () => {
       .then(({ data }) => {
         setSignedIn(true);
         setCurrentUser(data);
+        setUserInfoInStorage(data);
         redirectOnSignin();
       })
       .catch((err) => console.log(err));
   };
 
   const onSignout = () => {
+    removeUserInfoFromStorage();
     setSignedIn(false);
     setCurrentUser(null);
   };
 
-  const onUserInfoChange = ({ data }) => setCurrentUser(data);
+  const onUserInfoChange = ({ data }) => {
+    setCurrentUser(data);
+    setUserInfoInStorage(data);
+  };
 
   useEffect(() => {
     if (!signedIn) {
+      const fromStorage = getUserInfoFromStorage();
+      if (fromStorage) {
+        setCurrentUser(fromStorage);
+        setSignedIn(true);
+        redirectOnSignin();
+        return;
+      }
+
       getUserInfo()
         .then(({ data }) => {
           setCurrentUser(data);
+          setUserInfoInStorage(data);
           setSignedIn(true);
         })
         .catch((err) => console.log(err));
