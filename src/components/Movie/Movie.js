@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DeleteButton from "./components/DeleteButton";
 import SaveButton from "./components/SaveButton";
 import { deleteLike, setLike } from "../../utils/MainApi";
+import RemoveButton from "./components/RemoveButton";
 
 const adaptMovieToServer = (movie) => {
   const adapted = { ...movie };
@@ -17,10 +18,6 @@ const Movie = (props) => {
 
   const [movie, setMovie] = useState(initialMovie);
   const [showSaveButton, setShowSaveButton] = useState(false);
-
-  useEffect(() => {
-    console.log(movie);
-  }, [movie]);
 
   const onMovieMouseOver = () => setShowSaveButton(true);
   const onMovieMouseLeave = () => setShowSaveButton(false);
@@ -47,6 +44,13 @@ const Movie = (props) => {
 
   formatDuration(movie.duration);
 
+  const renderDefaultControls = () =>
+    movie.isFavorite ? (
+      <DeleteButton onClick={onDeleteButtonClick} />
+    ) : (
+      <SaveButton show={showSaveButton} onClick={onSaveButtonClick} />
+    );
+
   return (
     <article className="movie">
       <div
@@ -59,10 +63,13 @@ const Movie = (props) => {
           <h2 className="movie__title">{movie.nameRU}</h2>
           <p className="movie__duration">{formatDuration(movie.duration)}</p>
         </div>
-        {movie.isFavorite ? (
-          <DeleteButton onClick={onDeleteButtonClick} />
+        {props.favorite ? (
+          <RemoveButton
+            show={showSaveButton}
+            onClick={() => props.onRemoveClick(movie.movieId)}
+          />
         ) : (
-          <SaveButton show={showSaveButton} onClick={onSaveButtonClick} />
+          renderDefaultControls()
         )}
       </div>
     </article>

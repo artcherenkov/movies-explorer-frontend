@@ -7,7 +7,7 @@ import MoviesList from "../components/MoviesList/MoviesList";
 import { getFavoriteMovies } from "../utils/MainApi";
 import getMovies from "../utils/MoviesApi";
 
-const onFilter = (movies, { search, isShort }) =>
+export const onFilter = (movies, { search, isShort }) =>
   movies.filter((m) => {
     const containsSearchString = m.nameRU
       .toLowerCase()

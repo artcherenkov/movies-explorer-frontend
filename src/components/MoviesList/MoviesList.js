@@ -13,7 +13,11 @@ const MoviesList = (props) => {
       <ul className="movies__list">
         {props.movies.map((m) => (
           <li className="movies__item" key={m.movieId}>
-            <Movie movie={m} />
+            <Movie
+              movie={m}
+              favorite={props.favorites}
+              onRemoveClick={props.onRemoveClick}
+            />
           </li>
         ))}
       </ul>
