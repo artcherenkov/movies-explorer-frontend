@@ -62,6 +62,7 @@ const Movie = (props) => {
       target="_blank"
       rel="noreferrer"
       onClick={onMovieClick}
+      style={{ textDecoration: "none" }}
     >
       <article className="movie">
         <div
