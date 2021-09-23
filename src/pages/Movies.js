@@ -10,34 +10,17 @@ import useWindowSize from "../hooks/useWindowSize";
 import {
   getBeatfilmMoviesFromStorage,
   getFavoriteMoviesFromStorage,
-  setBeatFilmMoviesToStorage,
+  setBeatfilmMoviesToStorage,
   setFavoriteMoviesToStorage,
 } from "../utils/storage";
-
-const Breakpoint = {
-  L: {
-    width: 1200,
-    totalCards: 12,
-    perPage: 3,
-  },
-  M: {
-    width: 768,
-    totalCards: 8,
-    perPage: 2,
-  },
-  S: {
-    width: 360,
-    totalCards: 5,
-    perPage: 2,
-  },
-};
+import { Breakpoint, SHORT_MOVIE_DURATION } from "../utils/const";
 
 export const onFilter = (movies, { search, isShort }) =>
   movies.filter((m) => {
     const containsSearchString = m.nameRU
       .toLowerCase()
       .includes(search.toLowerCase());
-    const shortFilm = m.duration <= 40;
+    const shortFilm = m.duration <= SHORT_MOVIE_DURATION;
 
     if (isShort) {
       return containsSearchString && shortFilm;
@@ -66,19 +49,20 @@ const setMoviesFavoriteState = (movies, favoriteMovies) => {
   const favoriteMoviesIds = favoriteMovies.map((m) => m.movieId);
   return movies.map((m) => {
     if (favoriteMoviesIds.includes(m.movieId)) {
-      return {
-        ...m,
-        isFavorite: true,
-        _id: favoriteMovies.find((mov) => mov.movieId === m.movieId)._id,
-      };
+      // фильм, встречающийся и в списке beatfilm, и в списке избранных
+      const intersectedMovie = favoriteMovies.find(
+        (mov) => mov.movieId === m.movieId
+      );
+
+      return { ...m, _id: intersectedMovie._id };
     }
     return m;
   });
 };
 
-export const processMovieData = (bf, f) => {
-  const adaptedMovies = bf.map(adaptMovieToClient);
-  return setMoviesFavoriteState(adaptedMovies, f);
+export const processMovieData = (beatfilms, favorites) => {
+  const adaptedMovies = beatfilms.map(adaptMovieToClient);
+  return setMoviesFavoriteState(adaptedMovies, favorites);
 };
 
 const Movies = () => {
@@ -103,14 +87,11 @@ const Movies = () => {
       if (!moviesData) {
         setLoading(true);
         Promise.all([getMovies(), getFavoriteMovies()])
-          .then(([data, favoriteMoviesData]) => {
-            setBeatFilmMoviesToStorage(data);
-            setFavoriteMoviesToStorage(favoriteMoviesData.data);
+          .then(([beatfilm, { data: favorites }]) => {
+            setBeatfilmMoviesToStorage(beatfilm);
+            setFavoriteMoviesToStorage(favorites);
 
-            const withFavoriteState = processMovieData(
-              data,
-              favoriteMoviesData.data
-            );
+            const withFavoriteState = processMovieData(beatfilm, favorites);
             setMoviesData(withFavoriteState);
 
             const filtered = onFilter(withFavoriteState, search);
@@ -144,10 +125,10 @@ const Movies = () => {
     setLike(movie)
       .then(({ data }) => {
         const newMovies = [...movies];
-        const likedMoveIndex = newMovies.findIndex(
+        const likedMovieIndex = newMovies.findIndex(
           (m) => m.movieId === movie.movieId
         );
-        newMovies[likedMoveIndex] = { ...movie, _id: data._id };
+        newMovies[likedMovieIndex] = { ...movie, _id: data._id };
         setMovies(newMovies);
 
         const favoriteMovies = getFavoriteMoviesFromStorage();
@@ -160,13 +141,13 @@ const Movies = () => {
     deleteLike(_id)
       .then(() => {
         const newMovies = [...movies];
+
         const removedMovieIndex = newMovies.findIndex((m) => m._id === _id);
         const removedMovie = newMovies[removedMovieIndex];
         delete removedMovie._id;
+        newMovies[removedMovieIndex] = removedMovie;
 
-        newMovies[removedMovieIndex] = { ...removedMovie };
         setMovies(newMovies);
-
         const favoriteMovies = getFavoriteMoviesFromStorage().filter(
           (m) => m._id !== _id
         );

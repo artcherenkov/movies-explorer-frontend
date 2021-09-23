@@ -10,7 +10,7 @@ const formatDuration = (duration) => {
 };
 
 const Movie = (props) => {
-  const { movie } = props;
+  const { movie, isFavoritePage } = props;
 
   const [showSaveButton, setShowSaveButton] = useState(false);
 
@@ -55,7 +55,7 @@ const Movie = (props) => {
             <h2 className="movie__title">{movie.nameRU}</h2>
             <p className="movie__duration">{formatDuration(movie.duration)}</p>
           </div>
-          {props.favorite ? (
+          {isFavoritePage ? (
             <RemoveButton show={showSaveButton} onClick={onRemoveButtonClick} />
           ) : (
             renderDefaultControls()

@@ -67,7 +67,7 @@ const SavedMovies = () => {
           error={error}
           movies={filteredMovies}
           onRemoveMovieClick={handleRemoveMovieClick}
-          favorites
+          isFavoritePage
         />
       )}
       <Footer />
