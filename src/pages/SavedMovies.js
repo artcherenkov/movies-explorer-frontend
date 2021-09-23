@@ -6,6 +6,10 @@ import Footer from "../components/Footer/Footer";
 import { onFilter } from "./Movies";
 import { deleteLike, getFavoriteMovies } from "../utils/MainApi";
 import Loader from "../components/Loader/Loader";
+import {
+  getFavoriteMoviesFromStorage,
+  setFavoriteMoviesToStorage,
+} from "../utils/storage";
 
 const SavedMovies = () => {
   const [movies, setMovies] = useState([]);
@@ -18,9 +22,17 @@ const SavedMovies = () => {
   });
 
   useEffect(() => {
+    const favorite = getFavoriteMoviesFromStorage();
+    if (favorite) {
+      setMovies(favorite);
+      setFilteredMovies(favorite);
+      return;
+    }
+
     setLoading(true);
     getFavoriteMovies()
       .then(({ data }) => {
+        setFavoriteMoviesToStorage(data);
         setMovies(data);
         setFilteredMovies(data);
       })
@@ -39,6 +51,7 @@ const SavedMovies = () => {
       .then(() => {
         const newMovies = [...movies].filter((m) => m.movieId !== movieId);
         setMovies(newMovies);
+        setFavoriteMoviesToStorage(newMovies);
       })
       .catch((err) => console.log(err));
   };

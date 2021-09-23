@@ -3,10 +3,16 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import SearchBar from "../components/SearchBar/SearchBar";
 import MoviesList from "../components/MoviesList/MoviesList";
-import { getFavoriteMovies } from "../utils/MainApi";
+import { getFavoriteMovies, setLike } from "../utils/MainApi";
 import getMovies from "../utils/MoviesApi";
 import Loader from "../components/Loader/Loader";
 import useWindowSize from "../hooks/useWindowSize";
+import {
+  getBeatfilmMoviesFromStorage,
+  getFavoriteMoviesFromStorage,
+  setBeatFilmMoviesToStorage,
+  setFavoriteMoviesToStorage,
+} from "../utils/storage";
 
 const Breakpoint = {
   L: {
@@ -70,21 +76,7 @@ const setMoviesFavoriteState = (movies, favoriteMovies) => {
   });
 };
 
-const setBeatFilmMoviesToStorage = (beatfilmMovies) => {
-  localStorage.setItem("beatfilmMovies", JSON.stringify(beatfilmMovies));
-};
-
-const getBeatfilmMoviesFromStorage = () =>
-  JSON.parse(localStorage.getItem("beatfilmMovies"));
-
-const setFavoriteMoviesToStorage = (movies) => {
-  localStorage.setItem("movies", JSON.stringify(movies));
-};
-
-const getFavoriteMoviesFromStorage = () =>
-  JSON.parse(localStorage.getItem("movies"));
-
-const processMovieData = (bf, f) => {
+export const processMovieData = (bf, f) => {
   const adaptedMovies = bf.map(adaptMovieToClient);
   return setMoviesFavoriteState(adaptedMovies, f);
 };
@@ -148,6 +140,22 @@ const Movies = () => {
     setCardsCount(cardsCount + cardsPaging.perPage);
   }, [cardsCount, cardsPaging]);
 
+  const handleSaveMovieClick = (movie) => {
+    setLike(movie)
+      .then(({ data }) => {
+        const newMovies = [...movies];
+        const likedMoveIndex = newMovies.findIndex(
+          (m) => m.movieId === movie.movieId
+        );
+        newMovies[likedMoveIndex] = { ...data };
+        setMovies(newMovies);
+
+        const favoriteMovies = getFavoriteMoviesFromStorage();
+        setFavoriteMoviesToStorage([...favoriteMovies, data]);
+      })
+      .catch((err) => console.log(err));
+  };
+
   useEffect(() => {
     setCardsCount(cardsPaging.total);
   }, [movies, cardsPaging]);
@@ -183,6 +191,7 @@ const Movies = () => {
           movies={movies?.slice(0, cardsCount)}
           onMoreClick={onMoreClick}
           showButton={cardsCount < movies?.length}
+          onSaveMovieClick={handleSaveMovieClick}
         />
       )}
       <Footer />

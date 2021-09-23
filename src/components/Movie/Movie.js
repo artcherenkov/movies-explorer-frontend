@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DeleteButton from "./components/DeleteButton";
 import SaveButton from "./components/SaveButton";
-import { deleteLike, setLike } from "../../utils/MainApi";
+import { deleteLike } from "../../utils/MainApi";
 import RemoveButton from "./components/RemoveButton";
 
 const adaptMovieToServer = (movie) => {
@@ -22,18 +22,12 @@ const Movie = (props) => {
   const { movie: initialMovie } = props;
 
   const [movie, setMovie] = useState(initialMovie);
+  const [favorite, setFavorite] = useState(!!props.movie._id);
   const [showSaveButton, setShowSaveButton] = useState(false);
 
   const onMovieMouseOver = () => setShowSaveButton(true);
   const onMovieMouseLeave = () => setShowSaveButton(false);
 
-  const onSaveButtonClick = () => {
-    setLike(adaptMovieToServer(movie))
-      .then(({ data }) => {
-        setMovie({ ...movie, _id: data._id, isFavorite: true });
-      })
-      .catch((err) => console.log(err));
-  };
   const onDeleteButtonClick = () => {
     deleteLike(movie._id)
       .then(() => {
@@ -41,8 +35,14 @@ const Movie = (props) => {
       })
       .catch((err) => console.log(err));
   };
+
   const onRemoveButtonClick = () =>
     props.onRemoveClick(movie._id, movie.movieId);
+  const onSaveButtonClick = () => {
+    props.onSaveClick(movie);
+    setFavorite(true);
+  };
+
   const onMovieClick = (evt) => {
     if (evt.target.tagName.toLowerCase() === "button") {
       evt.preventDefault();
@@ -50,7 +50,7 @@ const Movie = (props) => {
   };
 
   const renderDefaultControls = () =>
-    movie.isFavorite ? (
+    favorite ? (
       <DeleteButton onClick={onDeleteButtonClick} />
     ) : (
       <SaveButton show={showSaveButton} onClick={onSaveButtonClick} />

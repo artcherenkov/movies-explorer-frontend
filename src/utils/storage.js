@@ -6,3 +6,14 @@ export const getUserInfoFromStorage = () =>
 
 export const removeUserInfoFromStorage = () =>
   localStorage.removeItem("userInfo");
+
+export const setBeatFilmMoviesToStorage = (beatfilmMovies) => {
+  localStorage.setItem("beatfilmMovies", JSON.stringify(beatfilmMovies));
+};
+export const getBeatfilmMoviesFromStorage = () =>
+  JSON.parse(localStorage.getItem("beatfilmMovies"));
+export const setFavoriteMoviesToStorage = (movies) => {
+  localStorage.setItem("movies", JSON.stringify(movies));
+};
+export const getFavoriteMoviesFromStorage = () =>
+  JSON.parse(localStorage.getItem("movies"));
