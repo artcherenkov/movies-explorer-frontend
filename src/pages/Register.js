@@ -82,7 +82,7 @@ const Register = (props) => {
         disabled={!isValid || loading}
       >
         {loading ? (
-          <Loader type="TailSpin" color="#fff" height={14} width={15} />
+          <Loader type="TailSpin" color="#4285f4" height={14} width={15} />
         ) : (
           "Зарегистрироваться"
         )}
