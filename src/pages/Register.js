@@ -47,6 +47,7 @@ const Register = (props) => {
         maxLength={30}
         error={errors.name}
         pattern={pattern}
+        readOnly={loading}
         required
       />
       <Input
@@ -57,6 +58,7 @@ const Register = (props) => {
         type="email"
         autoComplete="off"
         error={errors.email}
+        readOnly={loading}
         required
       />
       <Input
@@ -68,6 +70,7 @@ const Register = (props) => {
         autoComplete="off"
         error={errors.password}
         minLength={8}
+        readOnly={loading}
         required
       />
       <p className={cn("auth__error", { auth__error_show: fetchError })}>

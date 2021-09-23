@@ -2,12 +2,6 @@
   margin-top: 219px;
 }
 
-.profile__button_type_submit:disabled,
-.profile__button_type_submit:disabled:hover {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
-
 @media (max-width: 768px) {
   .profile__button_type_submit {
     margin-top: 209px;

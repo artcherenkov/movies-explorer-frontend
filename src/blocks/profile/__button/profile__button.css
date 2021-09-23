@@ -15,3 +15,9 @@
 .profile__button:not(:last-child) {
   margin-bottom: 16px;
 }
+
+.profile__button:disabled,
+.profile__button:disabled:hover {
+  opacity: 0.3;
+  cursor: not-allowed;
+}

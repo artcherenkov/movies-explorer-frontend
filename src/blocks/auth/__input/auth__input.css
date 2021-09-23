@@ -18,3 +18,8 @@
   border-color: var(--accent-blue);
   outline: none;
 }
+
+.auth__input:disabled, .auth__input:read-only {
+  cursor: not-allowed;
+  opacity: 0.4;
+}

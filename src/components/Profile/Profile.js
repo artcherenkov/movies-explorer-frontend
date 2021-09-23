@@ -20,6 +20,7 @@ const Profile = (props) => {
   const currentUser = useContext(CurrentUserContext);
   const [isSameData, setIsSameData] = useState(true);
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   // скрывать сообщение об успешном изменении профиля
   useEffect(() => {
@@ -52,10 +53,12 @@ const Profile = (props) => {
 
   const onSubmit = (evt) => {
     evt.preventDefault();
+    setLoading(true);
     patchUserInfo({ name: values.name, email: values.email })
       .then(props.onUserInfoChange)
       .then(() => setMessage("Ваш профиль успешно обновлен."))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
   };
 
   const pattern = String(/^[a-zA-Zа-яА-ЯёЁ\s-]+$/).replaceAll("/", "");
@@ -82,6 +85,7 @@ const Profile = (props) => {
               minLength={2}
               maxLength={30}
               onChange={onChange}
+              readOnly={loading}
               pattern={pattern}
             />
             <span className="profile__error">{errors.name}</span>
@@ -100,6 +104,7 @@ const Profile = (props) => {
               value={values.email}
               required
               onChange={onChange}
+              readOnly={loading}
             />
             <span className="profile__error">{errors.email}</span>
           </div>
@@ -109,7 +114,7 @@ const Profile = (props) => {
               "profile__button_type_submit",
               "button"
             )}
-            disabled={!isValid || isSameData}
+            disabled={!isValid || isSameData || loading}
           >
             Редактировать
           </button>
@@ -121,6 +126,7 @@ const Profile = (props) => {
               "profile__button_type_signout",
               "button"
             )}
+            disabled={loading}
           >
             Выйти из аккаунта
           </button>
