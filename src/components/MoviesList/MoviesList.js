@@ -24,7 +24,7 @@ const MoviesList = (props) => {
             <Movie
               movie={m}
               favorite={props.favorites}
-              onRemoveClick={props.onRemoveClick}
+              onRemoveClick={props.onRemoveMovieClick}
               onSaveClick={props.onSaveMovieClick}
             />
           </li>

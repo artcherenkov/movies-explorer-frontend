@@ -3,7 +3,7 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import SearchBar from "../components/SearchBar/SearchBar";
 import MoviesList from "../components/MoviesList/MoviesList";
-import { getFavoriteMovies, setLike } from "../utils/MainApi";
+import { deleteLike, getFavoriteMovies, setLike } from "../utils/MainApi";
 import getMovies from "../utils/MoviesApi";
 import Loader from "../components/Loader/Loader";
 import useWindowSize from "../hooks/useWindowSize";
@@ -147,11 +147,30 @@ const Movies = () => {
         const likedMoveIndex = newMovies.findIndex(
           (m) => m.movieId === movie.movieId
         );
-        newMovies[likedMoveIndex] = { ...data };
+        newMovies[likedMoveIndex] = { ...movie, _id: data._id };
         setMovies(newMovies);
 
         const favoriteMovies = getFavoriteMoviesFromStorage();
         setFavoriteMoviesToStorage([...favoriteMovies, data]);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const handleRemoveMovieClick = (_id) => {
+    deleteLike(_id)
+      .then(() => {
+        const newMovies = [...movies];
+        const removedMovieIndex = newMovies.findIndex((m) => m._id === _id);
+        const removedMovie = newMovies[removedMovieIndex];
+        delete removedMovie._id;
+
+        newMovies[removedMovieIndex] = { ...removedMovie };
+        setMovies(newMovies);
+
+        const favoriteMovies = getFavoriteMoviesFromStorage().filter(
+          (m) => m._id !== _id
+        );
+        setFavoriteMoviesToStorage(favoriteMovies);
       })
       .catch((err) => console.log(err));
   };
@@ -192,6 +211,7 @@ const Movies = () => {
           onMoreClick={onMoreClick}
           showButton={cardsCount < movies?.length}
           onSaveMovieClick={handleSaveMovieClick}
+          onRemoveMovieClick={handleRemoveMovieClick}
         />
       )}
       <Footer />

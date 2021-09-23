@@ -66,7 +66,7 @@ const SavedMovies = () => {
         <MoviesList
           error={error}
           movies={filteredMovies}
-          onRemoveClick={handleRemoveMovieClick}
+          onRemoveMovieClick={handleRemoveMovieClick}
           favorites
         />
       )}
