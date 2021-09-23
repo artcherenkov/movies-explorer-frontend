@@ -70,11 +70,40 @@ const setMoviesFavoriteState = (movies, favoriteMovies) => {
   });
 };
 
+const setBeatFilmMoviesToStorage = (beatfilmMovies) => {
+  localStorage.setItem("beatfilmMovies", JSON.stringify(beatfilmMovies));
+};
+
+const getBeatfilmMoviesFromStorage = () =>
+  JSON.parse(localStorage.getItem("beatfilmMovies"));
+
+const setFavoriteMoviesToStorage = (movies) => {
+  localStorage.setItem("movies", JSON.stringify(movies));
+};
+
+const getFavoriteMoviesFromStorage = () =>
+  JSON.parse(localStorage.getItem("movies"));
+
+const processMovieData = (bf, f) => {
+  const adaptedMovies = bf.map(adaptMovieToClient);
+  return setMoviesFavoriteState(adaptedMovies, f);
+};
+
 const Movies = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [moviesData, setMoviesData] = useState(null);
   const [movies, setMovies] = useState(null);
+
+  useEffect(() => {
+    const beatfilm = getBeatfilmMoviesFromStorage();
+    const favorites = getFavoriteMoviesFromStorage();
+
+    if (beatfilm && favorites) {
+      const withFavoriteState = processMovieData(beatfilm, favorites);
+      setMoviesData(withFavoriteState);
+    }
+  }, []);
 
   const handleSearch = useCallback(
     (search) => {
@@ -83,9 +112,11 @@ const Movies = () => {
         setLoading(true);
         Promise.all([getMovies(), getFavoriteMovies()])
           .then(([data, favoriteMoviesData]) => {
-            const adaptedMovies = data.map(adaptMovieToClient);
-            const withFavoriteState = setMoviesFavoriteState(
-              adaptedMovies,
+            setBeatFilmMoviesToStorage(data);
+            setFavoriteMoviesToStorage(favoriteMoviesData.data);
+
+            const withFavoriteState = processMovieData(
+              data,
               favoriteMoviesData.data
             );
             setMoviesData(withFavoriteState);
