@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import { patchUserInfo, signOut } from "../../utils/MainApi";
 import useForm from "../../hooks/useForm";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
+import {clearStorage} from "../../utils/storage";
 
 const messageStyle = {
   color: "white",
@@ -43,7 +44,10 @@ const Profile = (props) => {
     setIsSameData(newIsSameData);
   }, [values, currentUser]);
 
-  const onSignOutClick = () => signOut().then(props.onSignout);
+  const onSignOutClick = () => {
+    signOut().then(props.onSignout);
+    clearStorage();
+  };
   const onChange = (evt) => {
     handleChange(evt);
     if (evt.target.name === "email") {

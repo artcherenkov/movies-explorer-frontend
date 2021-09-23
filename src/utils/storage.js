@@ -17,3 +17,10 @@ export const setFavoriteMoviesToStorage = (movies) => {
 };
 export const getFavoriteMoviesFromStorage = () =>
   JSON.parse(localStorage.getItem("movies"));
+
+
+export const clearStorage = () => {
+  localStorage.removeItem("userInfo");
+  localStorage.removeItem("beatfilmMovies");
+  localStorage.removeItem("movies");
+}
