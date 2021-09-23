@@ -6,9 +6,27 @@ import { patchUserInfo, signOut } from "../../utils/MainApi";
 import useForm from "../../hooks/useForm";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
+const messageStyle = {
+  color: "white",
+  position: "absolute",
+  top: -50,
+  margin: 0,
+  textAlign: "center",
+  width: "100%",
+  fontFamily: "var(--font-inter)",
+};
+
 const Profile = (props) => {
   const currentUser = useContext(CurrentUserContext);
   const [isSameData, setIsSameData] = useState(true);
+  const [message, setMessage] = useState("");
+
+  // скрывать сообщение об успешном изменении профиля
+  useEffect(() => {
+    if (message) {
+      setTimeout(() => setMessage(""), 3000);
+    }
+  }, [message]);
 
   const { values, handleChange, errors, setError, isValid } = useForm({
     name: currentUser.name,
@@ -36,6 +54,7 @@ const Profile = (props) => {
     evt.preventDefault();
     patchUserInfo({ name: values.name, email: values.email })
       .then(props.onUserInfoChange)
+      .then(() => setMessage("Ваш профиль успешно обновлен."))
       .catch((err) => console.log(err));
   };
 
@@ -46,6 +65,7 @@ const Profile = (props) => {
       <div className="profile__container">
         <h1 className="profile__header">Привет, {currentUser.name}!</h1>
         <form className="profile__form" onSubmit={onSubmit}>
+          {message && <p style={messageStyle}>{message}</p>}
           <div className="profile__input-wrapper">
             <label className="profile__label" htmlFor="name">
               Имя
