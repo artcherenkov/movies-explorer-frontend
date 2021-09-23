@@ -21,6 +21,10 @@ const Profile = (props) => {
   const [isSameData, setIsSameData] = useState(true);
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [defaultValues, setDefaultValues] = useState({
+    name: currentUser.name,
+    email: currentUser.email,
+  });
 
   // скрывать сообщение об успешном изменении профиля
   useEffect(() => {
@@ -29,10 +33,8 @@ const Profile = (props) => {
     }
   }, [message]);
 
-  const { values, handleChange, errors, setError, isValid } = useForm({
-    name: currentUser.name,
-    email: currentUser.email,
-  });
+  const { values, handleChange, errors, setError, isValid, resetForm } =
+    useForm(defaultValues);
 
   useEffect(() => {
     const newIsSameData =
@@ -56,8 +58,14 @@ const Profile = (props) => {
     setLoading(true);
     patchUserInfo({ name: values.name, email: values.email })
       .then(props.onUserInfoChange)
-      .then(() => setMessage("Ваш профиль успешно обновлен."))
-      .catch((err) => console.log(err))
+      .then(() => {
+        setMessage("Ваш профиль успешно обновлен.");
+        setDefaultValues({ name: values.name, email: values.email });
+      })
+      .catch(() => {
+        setMessage("При обновлении профиля произошла ошибка.");
+        resetForm(defaultValues);
+      })
       .finally(() => setLoading(false));
   };
 

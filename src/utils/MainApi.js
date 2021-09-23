@@ -1,6 +1,6 @@
 import getResponseData from "./api";
 
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "https://api.movies-explorer.online";
 
 export const register = (values) =>
   fetch(`${BASE_URL}/signup`, {
