@@ -1,0 +1,7 @@
+.movies__not-found {
+  color: white;
+  font-family: var(--font-inter);
+  text-align: center;
+  line-height: 1.4;
+  padding: 0 20px;
+}

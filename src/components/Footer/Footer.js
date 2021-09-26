@@ -1,5 +1,5 @@
 const Footer = () => (
-  <footer className="footer">
+  <footer className="footer root__footer">
     <p className="footer__note">Учебный проект Яндекс.Практикум х BeatFilm.</p>
     <div className="footer__container">
       <p className="footer__copyright">&copy; 2020</p>

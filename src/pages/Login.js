@@ -1,39 +1,70 @@
 import { Link } from "react-router-dom";
+import validator from "validator";
 import { useState } from "react";
+import Loader from "react-loader-spinner";
+import cn from "classnames";
 import AuthForm from "../components/AuthForm/AuthForm";
 import Input from "../components/Input/Input";
+import useForm from "../hooks/useForm";
+import { login } from "../utils/MainApi";
 
-const Login = () => {
-  const [email, setEmail] = useState("someemail@gmail.com");
-  const [password, setPassword] = useState("strongpassword");
+const Login = (props) => {
+  const [loading, setLoading] = useState(false);
+  const [fetchError, setFetchError] = useState("");
+  const { values, handleChange, errors, setError, isValid } = useForm();
 
-  const onEmailChange = (evt) => setEmail(evt.target.value);
-  const onPasswordChange = (evt) => setPassword(evt.target.value);
+  const onChange = (evt) => {
+    handleChange(evt);
+    if (evt.target.name === "email") {
+      if (!validator.isEmail(evt.target.value)) {
+        setError("email", "Введите валидный email.");
+      }
+    }
+  };
 
   const onSubmit = (evt) => {
     evt.preventDefault();
-    console.log(`email: ${email}\n`, `password: ${password}\n`);
+    setLoading(true);
+    login(values)
+      .then(props.onSignin)
+      .catch(setFetchError)
+      .finally(() => setLoading(false));
   };
 
   return (
     <AuthForm title="Рады видеть!" onSubmit={onSubmit}>
       <Input
         label="E-mail"
-        value={email}
-        onChange={onEmailChange}
+        name="email"
+        value={values.email}
+        onChange={onChange}
         type="email"
         autoComplete="off"
+        error={errors.email}
+        readOnly={loading}
+        required
       />
       <Input
         label="Пароль"
-        value={password}
-        onChange={onPasswordChange}
+        name="password"
+        value={values.password}
+        onChange={onChange}
         type="password"
         autoComplete="off"
-        error={1}
+        error={errors.password}
+        minLength={8}
+        readOnly={loading}
+        required
       />
-      <button className="auth__submit button" type="submit">
-        Войти
+      <p className={cn("auth__error", { auth__error_show: fetchError })}>
+        Произошла ошибка. Повторите попытку позже.
+      </p>
+      <button className="auth__submit button" type="submit" disabled={!isValid || loading}>
+        {loading ? (
+          <Loader type="TailSpin" color="#4285f4" height={14} width={15} />
+        ) : (
+          "Войти"
+        )}
       </button>
       <p className="auth__note">
         Ещё не зарегистрированы?{" "}

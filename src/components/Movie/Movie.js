@@ -1,38 +1,68 @@
 import { useState } from "react";
 import DeleteButton from "./components/DeleteButton";
 import SaveButton from "./components/SaveButton";
+import RemoveButton from "./components/RemoveButton";
+
+const formatDuration = (duration) => {
+  const hours = Math.floor(duration / 60);
+  const minutes = duration - hours * 60;
+  return hours ? `${hours}ч ${minutes}м` : `${minutes}м`;
+};
 
 const Movie = (props) => {
-  const { src, isFavorite: initialIsFavorite = false } = props;
+  const { movie, isFavoritePage } = props;
 
-  const [isFavorite, setIsFavorite] = useState(initialIsFavorite);
   const [showSaveButton, setShowSaveButton] = useState(false);
 
   const onMovieMouseOver = () => setShowSaveButton(true);
   const onMovieMouseLeave = () => setShowSaveButton(false);
 
-  const onSaveButtonClick = () => setIsFavorite(true);
-  const onDeleteButtonClick = () => setIsFavorite(false);
+  const onRemoveButtonClick = () =>
+    props.onRemoveClick(movie._id, movie.movieId);
+  const onSaveButtonClick = () => {
+    props.onSaveClick(movie);
+  };
+
+  const onMovieClick = (evt) => {
+    if (evt.target.tagName.toLowerCase() === "button") {
+      evt.preventDefault();
+    }
+  };
+
+  const renderDefaultControls = () =>
+    movie._id ? (
+      <DeleteButton onClick={onRemoveButtonClick} />
+    ) : (
+      <SaveButton show={showSaveButton} onClick={onSaveButtonClick} />
+    );
 
   return (
-    <article className="movie">
-      <div
-        className="movie__container"
-        onMouseOver={onMovieMouseOver}
-        onMouseLeave={onMovieMouseLeave}
-      >
-        <img className="movie__pic" src={src} alt="33 слова о дизайне" />
-        <div className="movie__info">
-          <h2 className="movie__title">33 слова о дизайне</h2>
-          <p className="movie__duration">1ч 17м</p>
+    <a
+      href={movie.trailer}
+      target="_blank"
+      rel="noreferrer"
+      onClick={onMovieClick}
+      style={{ textDecoration: "none" }}
+    >
+      <article className="movie">
+        <div
+          className="movie__container"
+          onMouseOver={onMovieMouseOver}
+          onMouseLeave={onMovieMouseLeave}
+        >
+          <img className="movie__pic" src={movie.image} alt={movie.nameRU} />
+          <div className="movie__info">
+            <h2 className="movie__title">{movie.nameRU}</h2>
+            <p className="movie__duration">{formatDuration(movie.duration)}</p>
+          </div>
+          {isFavoritePage ? (
+            <RemoveButton show={showSaveButton} onClick={onRemoveButtonClick} />
+          ) : (
+            renderDefaultControls()
+          )}
         </div>
-        {isFavorite ? (
-          <DeleteButton onClick={onDeleteButtonClick} />
-        ) : (
-          <SaveButton show={showSaveButton} onClick={onSaveButtonClick} />
-        )}
-      </div>
-    </article>
+      </article>
+    </a>
   );
 };
 

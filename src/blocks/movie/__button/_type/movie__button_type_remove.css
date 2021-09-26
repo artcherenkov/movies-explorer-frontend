@@ -1,0 +1,5 @@
+.movie__button_type_remove {
+  width: 21px;
+  height: 21px;
+  background: #ee3465 url("../../../../images/icon-remove.svg") center no-repeat;
+}

@@ -1,5 +1,19 @@
 .movie__pic {
   border-radius: 6px;
   cursor: pointer;
-  width: 100%;
+  width: 360px;
+  height: 201px;
+  object-fit: fill;
+}
+
+@media (max-width: 980px) {
+  .movie__pic {
+    width: 340px;
+  }
+}
+
+@media (max-width: 500px) {
+  .movie__pic {
+    width: 300px;
+  }
 }

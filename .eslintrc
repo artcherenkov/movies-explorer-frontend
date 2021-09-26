@@ -1,11 +1,32 @@
 {
-  "extends": ["react-app", "airbnb-base", "prettier"],
-  "plugins": ["import"],
+  "extends": [
+    "react-app",
+    "airbnb-base",
+    "prettier"
+  ],
+  "plugins": [
+    "import"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    }
+  },
   "rules": {
     "no-underscore-dangle": [
       "error",
       {
-        "allow": ["_id", "_doc"]
+        "allow": [
+          "_id",
+          "_doc"
+        ]
       }
     ]
   }

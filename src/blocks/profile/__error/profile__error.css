@@ -1,4 +1,4 @@
-.auth__error-msg {
+.profile__error {
   font-family: var(--font-inter);
   font-style: normal;
   font-weight: normal;
@@ -7,5 +7,5 @@
 
   color: var(--accent-pink);
   position: absolute;
-  top: 100%;
+  top: calc(100% + 3px);
 }

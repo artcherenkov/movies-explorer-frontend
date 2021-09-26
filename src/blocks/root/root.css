@@ -1,5 +1,7 @@
 .root {
   background: var(--bg-dark-grey);
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;

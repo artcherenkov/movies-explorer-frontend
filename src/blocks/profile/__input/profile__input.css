@@ -11,3 +11,8 @@
   border: none;
   background: transparent;
 }
+
+.profile__input:read-only {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
