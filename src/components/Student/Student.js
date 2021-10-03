@@ -11,13 +11,15 @@ const Student = ({ className }) => (
         <div className="student__info">
           <div className="student__personal">
             <h3 className="student__name">Артём</h3>
-            <p className="student__note">Фронтенд-разработчик, 20 лет</p>
+            <p className="student__note">Фронтенд-разработчик, 21 год</p>
             <p className="student__about">
-              Я родился и живу в Саратове, закончил факультет экономики СГУ. У
-              меня есть жена и дочь. Я люблю слушать музыку, а ещё увлекаюсь
-              бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ
-              Контур». После того, как прошёл курс по веб-разработке, начал
-              заниматься фриланс-заказами и ушёл с постоянной работы.
+              Меня зовут Артём, мне 21 год, я живу в Новосибирске, учусь в НГТУ
+              на факультете автоматики и вычислительной техники. Параллельно с
+              высшим образование прохожу курсы профессиональной переподготовки в
+              Яндекс.Практикуме по специальности "React-разработчик". В работе
+              уделяю особенное внимание чистоте кода, люблю писать документации
+              и придерживаюсь DRY. Не брезгую рефакторить или переписывать
+              legacy-код. Убежден, что каждый день нужно учиться чему-то новому.
             </p>
             <ul className="student__socials">
               <li className="student__social">
@@ -54,7 +56,7 @@ const Student = ({ className }) => (
             <li className="portfolio__links-item">
               <a
                 className="link portfolio__link"
-                href="https://google.com"
+                href="https://how-to-learn.netlify.app/"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -64,7 +66,7 @@ const Student = ({ className }) => (
             <li className="portfolio__links-item">
               <a
                 className="link portfolio__link"
-                href="https://google.com"
+                href="https://artcherenkov.github.io/russian-travel/"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -74,7 +76,7 @@ const Student = ({ className }) => (
             <li className="portfolio__links-item">
               <a
                 className="link portfolio__link"
-                href="https://google.com"
+                href="https://ypmesto.ru/"
                 target="_blank"
                 rel="noreferrer"
               >
